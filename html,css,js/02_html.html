@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 태그 수업 2</title>
+</head>
+<body>
+    <!-- 
+        .현재 위치는 /Users/yun-byeong-woo/Documents/GitHub/sesac-ys-2/html,css,js
+        ./ sesac-ys-2/html,css,js : 현재 위치에 있는 "sesac-ys-2/html,css,js" 파일에 접근
+        ../ : 한단계 앞 폴더로 이동 =>"sesac-ys-2/" --- 상대경로 지정
+        ../htmls,cs,js : 가능한 경로!
+     -->
+    <img src="./스크린샷 2023-09-14 오후 3.01.16.png" 
+        alt="새싹 이미지 입니다."
+        title="새싹"
+        width="300" 
+        height="300"
+         />
+
+    <a href="./01_html.html" target="_self">01_html.html</a>
+    <!-- target 은 기존창에서 새로운 창으로연다 -->
+    <a href="https://www.naver.com/" target="_blank">naver</a> 
+    <hr>
+
+    <!-- css Let's go -->
+    <!-- form은 데이터 담아서 넘길대 사용 -->
+    <h2>회원 가입</h2>
+    <form>
+        <!-- name은 데이터의 이름  -->
+        이름: <input type="text" name="name"  placeholder="이름을 입력하세요"/>
+        <br/>
+        이메일: <input type="text" name="email" />
+        <br/>
+        비밀번호: <input type="password" name="pw" />
+        <br/>
+        비밀번호 확인: <input type="password" name="pwcheck" />
+        <br/>
+        <input type="button"  value="버튼"/>
+        <br>
+        <button >제출</button>
+        <br/>
+
+         취미를 선택하세요 
+         <br/>
+        <input type="checkbox" name="sports" value="유도">유도
+        <input type="checkbox" name="sports" value="주짓수">bjj
+        <input type="checkbox" name="sports" value="kickboxing">킥복싱
+        <br/>
+
+        성병을 선택하세요
+        <input type="radio" name="gender" value="male" /> 남자
+        <input type="radio" name="gender" value="female"/> 남자
+        <br/>
+
+        16세 이상인가요
+        <input type="radio" name="is_older_15" value="Tru"/> yes
+        <input type="radio" name="is_older_15" value="No"/> No
+        <br/>
+
+        생년 월일: <input type="date" name="birth" />
+        <br />
+        색 : <input type="color" name="color" />
+        <br />
+        range: <input type="range" name="range"  min="0" max="10" step="2"/>
+        <br />
+        file : <input type="file" name="image" />
+
+        <br/>
+
+            
+        <select name="select_option" >
+            <optgroup label="coffee">
+                <option value="option_1">에스프레소</option>
+                <option value="option_2">아아</option>
+            </optgroup>
+            <optgroup label="juice">
+                <option value="option_3">수박</option>
+                <option value="option_4">멜론</option>
+            </optgroup>
+            
+        </select>
+        <br/>
+    
+    </form>
+
+    <!-- miniTest -->
+    <h1>설문 조사</h1>
+    <form>
+       이름: <input type="text" name="name_1"> 
+       <br/>
+       이메일: <input type="text" name="email_1" placeholder="exaple@naver.com">
+       <p>나이</p> 
+       10대<input type="checkbox" name="age" value="10">
+       20대<input type="checkbox" name="age" value="20">
+       30대<input type="checkbox" name="age" value="30">
+       40대<input type="checkbox" name="age" value="40">    
+       50대<input type="checkbox" name="age" value="50"> 
+       60대 이상<input type="checkbox" name="age" value="60">
+       <br/>
+       <br/>
+       원하는 강의 복수응답가능합니다
+       <br/>
+       <br/>
+       html<input type="checkbox" name="study" value="html">
+       css<input type="checkbox" name="study" value="css">
+       js<input type="checkbox" name="study" value="js">
+
+       <br/>
+       <br/>
+       <textarea>
+        하고싶은말 적어주세요
+       </textarea>
+       <br/>
+       <input type="submit" value="submit">
+    </form>
+    
+
+
+
+</body>
+</html>
