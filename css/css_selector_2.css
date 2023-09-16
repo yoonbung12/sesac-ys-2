@@ -92,3 +92,12 @@ input[type=name]{
 .fruits-3 > .wm-3{
     color: orange;
 }
+input:disabled{
+    background-color: red;
+}
+input[placeholder=이름]{
+    background-color: orange;
+}
+input:not([placeholder]){
+    background-color: blue;
+}
