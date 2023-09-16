@@ -1,0 +1,62 @@
+.div-hover:hover{
+    background-color: red;
+    /* 핸드폰에서는 없는 기능이다 */
+}
+/* 클릭을 꾸욱 누르고 있으면 바뀜 */
+.div-active:active{
+    background-color: blue;
+    color: white;
+}
+
+.input-focus:focus{
+    background-color: orange;
+}
+/* 방문을 했으면 색이 변한상태로 있는다 */
+a:visited{
+    color: red;
+}
+
+/* 첫번째 하위 요소가 span이다 */
+.fruits span:first-child{
+    color: red;
+
+}
+/* 마지막 하위요소가 h3 */
+.fruits h3:last-child{
+    color: salmon;
+}
+/* n번째 자식 */
+.fruits span:nth-child(2){
+    color: blue;
+}
+
+.fruits-2 span:nth-child(2n +1){
+    color: brown;
+}
+
+.fruits-2 span:not(.wm){
+    background-color: aqua;
+}
+
+.fruits *:not(span){
+    background-color: brown;
+}
+
+.stripes div:nth-child(2n){
+    color: black;
+    background-color: yellow;
+
+}
+.stripes div:nth-child(2n +1){
+    color: white;
+    background-color: navy;
+}
+
+.test-1:hover{
+    background-color: red;
+
+
+}
+.test-2:active{
+    background-color: blue;
+}
