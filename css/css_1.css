@@ -1,7 +1,10 @@
+/* 전체 선택자 */
 *{
-    color: rgb(71, 69, 69);
-    font-size: 50px;
+    color: white;
+    font-size: 25px;
+    background-color: gray;
 }
+/* 태그 선택자 */
 div{
     background-color: aqua;
 }
@@ -9,7 +12,19 @@ div{
 .orange{
     color: orange;
 }
-
+.bg-red{
+    background-color: red;
+}
+/* id 선택자 */
 #red{
     color: red;
+}
+.span1{
+    background-color: red;
+}
+#first{
+    background-color: blue;
+}
+.second{
+    background-color: green;
 }
