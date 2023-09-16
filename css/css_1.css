@@ -1,13 +1,13 @@
 /* 전체 선택자 */
 *{
-    color: white;
+    /* color: white;
     font-size: 25px;
-    background-color: gray;
+    background-color: gray; */
 }
 /* 태그 선택자 */
-div{
+/* div{
     background-color: aqua;
-}
+} */
 /* 클래스 선택자는 "." 붙는다 */
 .orange{
     color: orange;
@@ -27,4 +27,19 @@ div{
 }
 .second{
     background-color: green;
+}
+
+/* div 하위 선택자  */
+div .apple{
+    /* color: rgb(145, 21, 21); */
+}
+
+/* 자식 선택자 */
+div > .apple{
+    /* color: rgb(128, 11, 11); */
+}
+/* 인접 형제 선택자 */
+h1 ~ ul{
+    font-size: 20px;
+    color: blue;
 }
