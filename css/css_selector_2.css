@@ -60,3 +60,35 @@ a:visited{
 .test-2:active{
     background-color: blue;
 }
+/* ::before  */
+div.before-el::before{
+    content: "앞!";
+
+}
+/* ::after */
+div.after-el:after{
+    content: "hot!";
+    color: white;
+    font-size: 12px;
+    background-color: red;
+    border-radius: 2px;
+
+}
+div.box::before{
+    content: "택시";
+}
+div.box::after{
+    content: "빨리";
+}
+/* 속성 선택자 */
+input[type=name]{
+    background-color: orange;
+}
+
+.wm-3 {
+    color: red;
+}
+
+.fruits-3 > .wm-3{
+    color: orange;
+}
