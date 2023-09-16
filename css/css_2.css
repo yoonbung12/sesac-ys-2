@@ -1,0 +1,36 @@
+h1{
+    color: white;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+}
+h2{
+    background-color: orange;
+    width: 50px;
+    height: 50px;
+}
+h3{
+    background-color: yellow;
+    width: 70px;
+    height: 80px;
+}
+h4{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
+h5{
+    background-color: blue;
+    width: 130px;
+    height: 130px;
+}
+h6{
+    background-color: purple;
+    width: 170px;
+    height: 170px;
+}
+div{
+    color: white;
+    background-color: black;
+    width: 60px;
+}
