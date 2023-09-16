@@ -64,5 +64,15 @@
     margin-top: 300px; */
     /* 한번에 지정하기 */
     margin: 100px 20px 30px 50px;
+    padding: 50px;
 
+}
+
+.box-css{
+    background-color: purple;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border: 2px solid black;
 }
