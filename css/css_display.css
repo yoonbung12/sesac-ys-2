@@ -1,0 +1,74 @@
+/* 
+    div{
+        display:block 기본 요소가 있다
+    }
+*/
+.box {
+    background-color: black; 
+    width: 100px; 
+    height: 100px;
+    color: white;
+    margin: 5px;
+}
+
+/* 
+    inline: width, height, margin(top, bottom) 무용지물
+    inline-block: inline과 block의 특징을 합쳐놓음 ->
+    (inline: content의 크기만큼만 공간을 차지) / block: width, height, margin정상 작동
+*/
+/* .d-inline-block{
+    display: inline-block;
+    padding: 20px; 
+    background-color: black; 
+    width: 100px; 
+    height: 100px;
+    color: white;
+} */
+
+.container{
+    /* flex: 자식요소를 inline-block으로 만들어 버림 */
+    display: flex;
+    height: 500px;
+    /* 기본은 column, row로 한다 */
+    /* flex-direction: column-reverse; 열축 아래 */
+    /* flex-direction: row-reverse (행축을 옆으로 바꿈) */
+}
+
+.container2{
+    background-color: black;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+
+}
+.container3{
+    background-color: black;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-direction: row;
+    margin-bottom: 20px;
+
+}
+.container4{
+    background-color: black;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-direction: column;
+}
+.item1 {
+    width: 100px;
+    height: 100px;
+}
+.item2{
+
+    width: 100px;
+    height: 100px;
+}
+.item3{
+    width: 100px;
+    height: 100px;
+}
