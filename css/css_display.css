@@ -9,6 +9,7 @@
     height: 100px;
     color: white;
     margin: 5px;
+    /* 글자 정렬 기본 */
     text-align: center;
     line-height: 100px;
 }
@@ -76,6 +77,7 @@
 } */
 
 .container-2{
+    
     /* flex wrap , 기본은 no-wrap이고  wrap-reverse(뒤집는거)도 있다.
         justify-content: center;
     */
@@ -89,4 +91,21 @@
     justify-content: space-evenly;
     align-items: center;
  
+}
+.container-3{
+    
+    /* flex wrap , 기본은 no-wrap이고  wrap-reverse(뒤집는거)도 있다.
+        justify-content: center;
+    */
+
+    margin-top: 20px;
+    display: flex;
+    width: 400px;
+    height: 400px;
+    background-color: blue;
+    /* wrap-reverse 주축에 대한 정렬이다 */
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
 }
