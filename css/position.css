@@ -51,3 +51,99 @@ body{
     width: 100%;
     background-color: gray;
 }
+/* ------------------------ */
+/* minitest */
+/* .container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+} */
+
+.item1 {
+    /* 자기자신을 기준으로 움직인다. 왼50 위30 */
+    position: relative;
+    background-color:red;
+    width: 120px;
+    height: 120px;
+    left: 50px;
+    top: 30px;
+}
+
+.item2 { /* 부모를 기준으로 (absoulte) */
+    position: absolute;
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    right: 30px;
+    bottom: 100px;
+}
+.item3 {
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    background-color: yellowgreen;
+    height: 120px;
+    width: 120px;
+}
+
+
+
+.item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+/* ---------------------- */
+/* z-index사용 ,, container사용 */
+/* 
+.container{
+    background-color: gray;
+    height: 200px;
+    width: 200px;
+}
+
+.red {
+    z-index: 2;
+    background-color: red;
+}
+.orange {
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    background-color: orange;
+}
+.yellow {
+    top: 40px;
+    left: 40px;
+    background-color: yellow;
+} */
+/* ---------------------- */
+
+/* minitest(애벌레) */
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+.c-1{
+    z-index: 1;
+    background-color: rgb(71, 71, 204);
+}
+.c-2 {
+    z-index: 2;
+    background-color: blue;
+}
+
+.c-3{
+    background-color: rgb(47, 47, 151);
+
+}
+.c-4{
+    background-color: rgb(32, 32, 95);
+}
+.c-5{
+    background-color:gray;
+}
+

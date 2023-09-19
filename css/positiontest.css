@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+}
+.container{
+    position: relative;
+}
+
+.item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+
+}
+
+.white-eye{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: white;
+    left: 20px;
+    top: 30px;
+}
+.black-eye{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 7px;
+    background-color: black;
+    top: 10px;
+    left: 10px;
+
+}
+
+.item-1{
+
+    background-color: blue;
+}
+.item-2{
+    top: 50px;
+    left: 40px;
+    background-color: rgb(53, 53, 179);
+}
+.item-3{
+    top: 80px;
+    left: 60px;
+    background-color: rgb(24, 24, 141);
+}
+.item-4{
+    top: 100px;
+    left: 100px;
+    background-color: rgb(22, 22, 97);
+}
+.item-5{
+    top: 120px;
+    left: 170px;
+    background-color: blue;
+    z-index: 1;
+}
