@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+
+
+}
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
+
+}
+
+.container-2{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    align-items: center;
+    align-content: center;
+}
