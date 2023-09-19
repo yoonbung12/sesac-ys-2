@@ -6,6 +6,7 @@ body {
 }
 
 .item {
+    /* 원들이 container안에 있으니까 absolute사용 */
     position: absolute;
     width: 100px;
     height: 100px;

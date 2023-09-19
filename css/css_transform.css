@@ -1,0 +1,33 @@
+
+.img-skew:active {
+    /* transform: skewX(50deg);
+    transform: skewY(30deg); 
+    */
+    transform: skew(50deg, 50deg);
+
+}
+
+.img-rotate:active {
+    transform: rotateX(180deg);
+    /* transform: rotateY(60deg); */
+}
+
+.img-scale:active{
+    left: 30px;
+    transform: scale(2);
+}
+
+.img-translate:active{
+    transform: translateX(30px);
+    transform: translateY(20px);
+}
+
+.img-transform:active {
+    width: 500px;
+    transform: perspective(150px) rotate(40deg);
+    transition: 2s ; /* 2s 앞에 all은 기본으로 들어가 있다. */
+}
+.img-width{
+    width: 500px;
+    transition: 2s;
+}
