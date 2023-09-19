@@ -1,0 +1,53 @@
+/* relative */
+/* 기준점: relative(자기 스스로), 
+absolute(부모기준에 따라)-- position: static 속성을 가지고 있지 않은 조상을 기준으로 움직인다.*/
+body{
+    /* 이거 마진0은 default값으로 시작 */
+    margin: 0;
+}
+.box { /* 클래스 하나더 추가  */
+    /* Static 이 기본값*/
+    /* position static; */
+    width: 100px;
+    height: 100px;
+
+}
+.box-red{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: red;
+}
+.box-orange{
+    position: relative;
+    /* top: 30px; */
+    bottom: -20px;
+    /* left: 20px; */
+    right: 20px;
+    background-color: orange;
+}
+.box-yellow {
+    position: absolute;
+    background-color: yellow;
+}
+
+.sm-box {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.box-green {
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+    background-color: green;
+
+}
+.fixed { /* 부모고 자시고 뭐가 있든 알빠아니다. 결국 뷰포트(브라우저)기준이다 */
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: gray;
+}
