@@ -178,6 +178,26 @@
         let result2 = ++num6;
         console.log(result2);
 
+        // ----------------------------------functioin(함수)
+        // function function이름(매개변수) {함수가 실행하는것(scope)}
+        funEx1(); //애는 먼저 선언해도 괜춘험
+        //명시적 함수 선언
+        function funEx1() {
+            console.log("hello1");
+        } //호이스팅 
+
+        funEx2(); //이거는 오류가 뜬다...
+        //함수 표현식으로 선언
+        const funEx2 = function( ) {
+            console.log("hello2")
+        }
+        const funEx3 = () => {
+            console.log("hello3");
+        }
+
+
+
+
 
 
 
