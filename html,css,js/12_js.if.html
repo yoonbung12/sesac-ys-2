@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js_If</title>
+</head>
+<body>
+    <script>
+        /**
+         *  기본적인 문법(가장 복잡한)!!
+            if(조건1){
+                //조건이 true일때 실행할 코드
+                } else if(조건2) {
+                    조건 1은 false 이고, 조건 2가 true일때 실행 
+                } else {
+                     //위에 나온 조건들이 모두 거짓일 때 실행할 코드
+
+                }
+
+                // 그나마 가벼운 구조 
+                if(){
+
+                } else {
+
+                }
+         *  **/
+        let name = "bonggu";
+
+         if(name == "bongu"){
+             console.log("bonggu 안녕")
+
+         } else if(name === "linda"){
+             console.log("linda leader hi");
+
+         }
+         else {
+             console.log("뉘슈??")
+         }
+
+         //아래 if문 만나면 위에거는 종료된다.
+         //if() {}
+
+         let number = 5;
+         if(number >4) {
+             if(number >7){
+                 console.log("a");
+             } else{
+                 console.log("b");
+
+             }
+         } else {
+             console.log("c");
+         }
+
+        //  if()--Test
+        //2가지 방법(prompt, function)
+        let age = Number(prompt("나이 입력해라"));
+       
+        if(age >= 20) {
+            console.log("성인 ");
+        } else if(age >= 17) {
+            console.log("고딩")
+        } else if(age >= 14) {
+            console.log("중딩")
+        } else if(age >= 8) {
+            console.log("초딩")
+        } else{
+            console.log("유아")
+        }
+
+        // function 사용해서 해보기
+        function ageCheck(age){
+            if(age >= 20) {
+            console.log("성인 ");
+        } else if(age >= 17) {
+            console.log("고딩")
+        } else if(age >= 14) {
+            console.log("중딩")
+        } else if(age >= 8) {
+            console.log("초딩")
+        } else{
+            console.log("유아")
+        }
+        }
+        ageCheck(22);
+        ageCheck(12);
+        ageCheck(2);
+
+        //  ------------ switch--------
+        number = "a";
+        switch(number){
+            case "a" : 
+                console.log("1");
+                break; //이거 다 없었으면 1 2 3 모르 찍혔다.
+            case "b" :
+                console.log("2");
+                break;
+            case "c" :
+                console.log("3");
+                break;       
+            default:
+                console.log("모르겠어요");
+
+        } 
+
+        //------------------ 삼항연산자
+        // 조건 ? 참일때(실행) : 거짓일때(실행)
+        name == "bonggu" ? console.log("안녕하세요") : console.log("누구야?");
+
+        // 살짝 응용한것 (=) 옆부터는 삼항연산자다!!!!
+        let msg = name == "bonggu" ? "안녕하소" : "누구야?"
+        console.log(msg);
+
+
+
+
+
+    </script>
+</body>
+</html>
