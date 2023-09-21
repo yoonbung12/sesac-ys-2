@@ -1,0 +1,75 @@
+/* animation만들기 */
+/* keyframes 애니메이션이름 */
+@keyframes bonggu {
+
+    /* from --> to  기본, %단위로도 가능*/
+    /* from {
+        left: 0px;
+    }
+
+    to {
+        left: 100px;
+    } */
+/* --------------------- */
+    /* 0%{
+
+    }
+    25%{
+
+    }
+    50%{
+
+    }
+    100% {
+
+    } */
+}
+.box {
+    /* position값이 없어서 지금 안된다 */
+    /* transition도 있어야함 */
+    position: relative;
+    animation: bonggu 2s linear 1s infinite; /* 횟수에 infinite하면 무한으로돈다 */
+    animation-direction: alternate; /* 자연스럽게 왔다갔다하는 모습*/
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+@keyframes move {
+    0%{
+        left: 0px;
+
+    }
+    25%{
+        left: 200px;
+        top:0px    
+
+
+    }
+    50%{
+        left: 200px;
+        top: 300px;
+
+    }
+    75%{
+        left: 0px;
+        top: 300px;
+
+    }
+    100%{
+        left: 0px;
+        top: 100px;
+    }
+    
+}
+
+.circle{
+    position: relative;
+    animation: move 3s linear 6;
+    animation-direction: normal;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: red;
+
+
+}
