@@ -1,0 +1,57 @@
+<!-- javascript이거는 그나마 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <!-- js: 참조: 내장 방식, 링크방식 왠만하면 body마지막쯤에 넣는게 괜춘하다. -->
+    <script>
+        //script 내부에  js 문법
+        //콘솔에 출력을 한다(내가 받아야 할 값들이나 등등)-- 알기위해서
+        console.log("hello");
+        
+        // 주로 이거는 아이디,비번 등등 틀렸을때 알려주는 메시지(안내 메시지를 위해서)
+        //alert("hello");
+        
+        /**
+        기본 표기법
+        dash-case 이거는 js에서 안된다.!!!
+        snake_case(이거 )
+        camel_case(이거 많이 쓴다.)
+        Pascal_case
+        */
+
+        /**
+         * 변수 선언
+         * var(재선언, 재할당 가능)-그닥 변수명 겹치는게 좋은게 아님
+         * let(재선언 불가, 재할당 가능),
+         * const(둘다 안된다...) - 선언할시 할당도 무조건 한다.
+         */
+        var name = "byeongwoo"; 
+        var name2;// 변수의 선언
+        name2 = "zzz" // 할당
+
+        // var: 재선언 가능, 재할당 가능
+        var name; // name이라는 변수가 재선언됨
+        name = "bonggu1";
+        name = "bonggu2"; //재 할당
+
+        //let 재선언 불가, 재할당 가능
+        let name3 = "bonggu2";
+        name3 = "bongu1";
+
+        //const(상수) : 재선언 불가, 재할당 불가
+        const name4 = "bonggu3";
+        
+
+        
+    </script>
+    <!-- 링크 방식 -->
+    <!-- <script src="../js/01_basic.js"></script> -->
+    
+</body>
+</html>
