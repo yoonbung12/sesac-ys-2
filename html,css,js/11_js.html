@@ -98,7 +98,7 @@
         console.log(typeof 3);
         console.log(typeof myName);
 
-        /**prompt
+        /**prompt(입력받는것 페이지에서)
          * **/
         // "80" + 90 = 8090
         let mathScore =Number (prompt("수학점수 "));
@@ -112,6 +112,60 @@
 
         console.log(Number(mathScore) + Number(engScore)); //Number(prompt())하기 전에는 이렇게
         console.log(mathScore + engScore);
+
+        /** 
+         * 연산자
+         * 대입 연산자 =
+         * 비교 연산자
+         * 산술연산자
+         * 
+         * **/
+        let num1 = 5;
+        let num2 = num1;
+
+        //비교 연산자
+        // ==, ===
+        console.log("80" == 80);
+        console.log("80" === 80);
+
+        // >=, <=, < , >
+        console.log(72 >= 80); //false
+        console.log(80 > 70); //true 
+
+        // !=(같지 않다), !===
+        console.log("byeong" != "linda"); // true
+        console.log("80" != 80); //false
+        console.log("80" !==80); //true
+
+        // 산술 연산자 ---------------
+        console.log(80 + 70); //150
+        console.log(10 * 8); //그냥 곱
+        console.log(10 / 2); //몫을 구함
+        console.log(20 % 3); //나머지 값만 구함
+
+        console.log(2**3) //2의 3승
+
+        // -----------논리 연산자
+        // num이 5보다 크고 9보다 작을때 (5 && num && 9)
+        // &&(and) : 앞, 뒤 조건 모두 true 일때 =>true
+        let num = 5;
+        console.log(5 < num && num < 9);
+
+        // ||(OR) : 앞, 뒤 둘중 하나만 참이면 true가 된다. 둘다 false여야만 false 나옴
+        console.log(num == 5 || num >9);
+        
+        // !(Not)연산자
+        let bool = true;
+        let undef = undefined;
+        console.log(!bool); //false
+        console.log(!undef); //true
+        console.log(!false); //true
+        console.log(!(num > 5)); //true
+
+
+
+
+
         
 
 
