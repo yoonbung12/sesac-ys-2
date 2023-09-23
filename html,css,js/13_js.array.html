@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 for문 </title>
+</head>
+<body>
+    <script>
+        let fruits = ["apple", "banan", "mango"];
+        for(let i =0; i < fruits.length; i++){
+            console.log(fruits[i]); //이거는 이름 찍는거고
+            // console.log(i); // index번호
+        }
+        
+        //for /of문
+        // let 변수 이름(배열이름에 맞춰서 생각하자) of 배열(선언해놓은)
+        for(let fruit of fruits){
+            console.log(fruit);// 하나씩 뽑아서 출력할려고
+        }
+
+        const cat = {
+            name: "나비",
+            age: 80,
+            mew: function(){
+                console.log("먀아아옹~~");
+            }
+        }
+
+        cat.mew();
+        // forEach함수 문법: 배열.forEach()
+        // 배열의 원소를 순차적으로 탐색함...
+        let fruits2 = ["apple", "banan", "mango", "watermelon"];
+        fruits2.forEach((fruit, index, array) =>{
+            //첫번째 매개변수 : 탐색된 원소 
+            //두번째 매개변수 : 인덱스
+            //세번째 매개변수 : 배열 그 자체 (fruits2의 내용)
+            console.log(fruit);
+            console.log(index);
+            console.log(array);
+        })
+        fruits2.forEach((fruit, index) =>{ //index만 올수 없어서 앞에 value가 들어와야함
+            
+        })
+
+        fruits2.forEach(function(){
+            
+        })
+
+        // ----ㅡminiTest
+        let numbers = []
+        for(let i = 1; i <= 100; i++){
+            numbers.push(i);
+            //배열(numbers)의 마지막에
+            //인자로 넘어간 값(i)를 추가
+        }
+        let sum =0;
+        for(let i = 1; i<=100; i++){
+
+            sum += i;
+
+        }
+
+        let sum2 = 0;
+        for(const number of numbers) {
+            sum2 += number;
+        }
+        
+        let sum3 = 0;
+        numbers.forEach((number, index) => {
+            sum3 += number
+
+        })
+
+        console.log(sum,  sum2, sum3);
+
+
+
+
+
+        
+
+        
+
+
+    </script>
+    
+</body>
+</html>
