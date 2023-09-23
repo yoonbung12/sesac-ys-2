@@ -105,8 +105,29 @@
         console.log("reverse:", numbers.reverse());
 
         // [1, 2,3].join("") //123이렇게 출력됨
-        console.log(["a","b","c","d"].join(""));
+        console.log(["a","b","c","d"].join(","));
         console.log("join",numbers.join(""))
+
+        let str = "Happy day~!";
+        console.log("length:" , str.length);
+        let sliceSlice =  str.slice(5, 9); // str.slice(5, 9);이것만 쓰면 사용 못함
+        console.log(str);
+
+        //검색창. javascripts != JavaScript
+        //JavaScript.io
+
+        console.log(str.split("")); // ['h','a','p'] 이렇게 잘림 거꾸로하고 싶으면 str.split("").reverse()하면됨
+        console.log(str.split("").reverse().join(" "));
+        console.log(str.split("").join(""));
+        console.log(str.split(" ")); // "[happy] [day~!]"뭉텅이로 짤림
+        console.log(str.repeat(3));
+        console.log(str.slice(3, 6));
+
+
+
+
+
+
 
 
 
