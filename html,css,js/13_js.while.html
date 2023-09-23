@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While문</title>
+</head>
+<body>
+    <script>
+        // for문 while문의 차이
+        // for문 : 반복할 횟수를 특정할 수 있을때!!!!
+        // while : 반복할 횟수를 특정할 수 없을때 !!
+
+        for(let i = 0; i < 10; i++){
+            console.log(i);
+        }
+
+        //while에서 이중으로 쓰지마라!!!
+        let i = 0;  //초기식
+        while(i < 10){ //조건
+            //조건이 true일 경우 실행할 명령문 
+            console.log(i);
+            i++; //증감문을 써야한다. 이거는 필수여 진짜 !!무조건 **********
+            let j = 0;
+            while(j < 10){
+                console.log(j);
+                j++;
+            }
+
+        }
+        console.log("The End");
+
+        // 비효율적이다
+        // let number = Number(prompt("숫자를 입력하세요"));
+        // while(number < 0) { //조건
+        //     let number =Number(prompt("숫자를 입력하세요"));
+
+        // }
+
+        // while(true){
+        //     // let number =Number(prompt("양수를  입력하세요"));
+        //     if(number > 0 )
+        //     break; //반복문 강제로 종료 시킴
+        //     console.log("hello")
+        // }
+        // console.log("The End")
+
+        //continue
+        for(let i = 0; i < 10; i++){
+            if(i % 2 == 0) 
+            continue; // 이거를 만나면 다음 반복문으로간다 ex)i 가 2였는데 if문이 성립되서  continue 만나면 3으로 넘어간다
+            console.log(i);
+
+            // 이 지점으로 jump
+
+        }
+
+        //do while문
+        // while(조건) {
+        //     //명령문
+
+        // }
+
+        // do{ //처음 한번을 무조건 실행하냐 안하냐의 차이다
+        //     //명령문 
+        //     let number =Number(prompt("양수를  입력하세요")); 
+        // } while(조건)
+        //     //명령문 
+        
+        // -------miniTest
+        //0 ~ 100까지중 2또는 5의 배수 총합 구하기
+        let sum = 0;
+        for(let i = 0; i <= 100; i++){
+            if(i % 2 == 0 || i % 5 ==0) {
+                sum = sum + i;
+
+            }
+        }
+        console.log(sum);
+
+        // -- miniTest
+        // 1000까지의 숫자중 13의 배수이면서 홀수인 숫자 찾기
+        // let a = Number(prompt("13의 배수 홀수 숫자 찾기"));
+        while(i <= 1000){
+            if(i % 13 == 0 && i % 2 == 1){
+                console.log(i);
+            }
+            i++;
+        }
+
+        //구구단
+        for(let i =2; i <= 9; i++){
+            for(let j = 1; j <= 9; j++){
+                console.log(` ${i} * ${j} =` + i * j);
+            }
+        }
+
+        //*찍기
+        
+
+
+    </script>
+
+</body>
+</html>
