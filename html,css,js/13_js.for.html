@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 </title>
+</head>
+<body>
+    <script>
+        // 배열과 for 문을 함께
+        // 비슷한 특징을 가진 값들을 모아둠
+
+        let num = 10;
+        // java랑 비슷하지만 for() 안에 " , " 을 쓰지 않는다.!!!
+        // 초기값,      조건문         증감식
+        for(let i = 0;  i < num;   i++){
+            // 0,1,2,3,4,5,6,7,8,9 => 10번 반복
+            // 명령문(반복하고 싶은 코드)
+            console.log(i + "안뇽");
+
+        }
+        console.log("TheEnd")
+
+
+        // let i; // 이거는 딱히 안쓴다는것!!
+        // for(i = 0;  i < num;   i++){
+        //     // 명령문
+        //     console.log(i + "hihi");
+
+        // }
+
+        //중첩 for문
+        for(let i =0 ; i < 5; i++){
+            //위에 for문이 true가 되면  아래 for문이 돈다! 
+            for(let j = 0; j < 5; j++){ 
+                console.log(`i: ${i}, j: ${j}`); //``이거 사용
+                console.log("i=" + i +"j=" + j)
+                // console.log("i * j =" + i * j);//구구단을 외우자!!!
+            }
+        }
+        // 초기값, 조건식, 증감문
+        for(let i = 0; i < 10; i += 2 ){
+            console.log(i);
+        }
+        for(let i = 10; i > 0; i-- ){
+            console.log(i);
+        }
+        for(let i = 0; i < 5; i++ ){}
+
+        
+
+
+
+        
+    </script>
+
+    
+</body>
+</html>
