@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 5;
+        let num2 = num;
+        num += 5;
+        console.log(num, num2);
+
+
+        let arr = [1,2,3,4,5];
+        let arr2 = arr; //값을 받는게 아닌!! 주소값을 받으니까 결국 둘이 같은 공간을 쓰는것!!!! c의 포인가 생각난다.
+        arr2.reverse();
+        console.log(arr, arr2);
+
+        var arr3 = [1,2,3,4];
+        var arr4 = arr3.slice(); // 깊은 복사해야지
+        
+        arr4.reverse();
+        console.log(arr3, arr4);
+
+        //javascript 표준 객체
+        let date = new Date();
+        console.log(date.getFullYear());
+        console.log(date.getMonth() + 1);
+        console.log(date.getDate());
+        console.log(date.getDay());
+        console.log(date.getHours());
+        console.log(date.getTime());
+
+        let expired = new Date("2023-09-30").getTime();
+        let today = new Date().getTime();
+
+        if(expired < today ){
+            console.log("만료일이 지났습니다.");
+        } else {
+            console.log("사용할 수 있어요");
+        }
+        //year, month, day
+        // +3 
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
