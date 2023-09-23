@@ -50,13 +50,15 @@
 
         // ----ㅡminiTest
         let numbers = []
-        for(let i = 1; i <= 100; i++){
+        for(let i = 1; i <= 10; i++){
             numbers.push(i);
             //배열(numbers)의 마지막에
             //인자로 넘어간 값(i)를 추가
         }
+
+
         let sum =0;
-        for(let i = 1; i<=100; i++){
+        for(let i = 1; i<=10; i++){
 
             sum += i;
 
@@ -74,6 +76,42 @@
         })
 
         console.log(sum,  sum2, sum3);
+
+        // ------------------------------
+        const arr = [1, 2, 3, 4, 5];
+        let arr_filter = arr.filter(function (a) { return a > 3; });
+        //filter는 부합하는 요소만 찾아서 배열로 반환
+        let val_find = arr.find(function (a) { return a > 3; });
+        // find는 배열 내부에서 조건에 부합하는  첫번째 값만 찾는다
+        let arr_map = arr.map(function (b) { return b + 3; });
+        // 익명함수에 쓰여진 연산결과를 새로운 배열로 반환
+
+        // .pop() 배열 마지막에 있는 값을 뺀다~
+        numbers.pop()
+        console.log("pop : ", numbers);
+
+        numbers.shift() //맨앞에 제거
+        console.log("shift : ", numbers);
+
+        numbers.unshift(11) // 맨앞에 추가
+        console.log("unshift: ", numbers)
+    
+        //배열에 요소가 있는지  확인
+        console.log("include",numbers.includes(2));
+
+        console.log("indexOf(5) : ", numbers.indexOf(5)); //매개변수에 해당하는 배열의 인덱스 받는다.
+        console.log("indexOf(1) : ", numbers.indexOf(1));
+
+        console.log("reverse:", numbers.reverse());
+
+        // [1, 2,3].join("") //123이렇게 출력됨
+        console.log(["a","b","c","d"].join(""));
+        console.log("join",numbers.join(""))
+
+
+
+
+
 
 
 
