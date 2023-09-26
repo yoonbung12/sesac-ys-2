@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomTest</title>
+    <style>
+        
+
+
+        .box {
+            width: 60px;
+            height: 20px;
+            background-color: gray;
+            border-radius: 15%;
+            margin: 10px;
+            display: block;
+            float: left;
+            text-align: center;
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div id="container">
+            <div>
+                값1:<input type="text" id="value1" />
+            </div>
+            <div>
+                값2:<input type="text" id="value2" />
+            </div>
+            <div>
+                연산자:<input type="text" id="calAll" />
+            </div>
+            <div>
+                결과:<input type="text" id="result" />
+            </div>
+            <div type="button" onclick="cal()" class="box">계산하기</div>
+            <div type="button" value="deleText" onclick="removeAll()" class="box">초기화</div>
+    
+        </div>
+    </form>
+   
+    <script>
+        function cal() {
+            let v1 = parseInt(document.getElementById("value1").value);
+            let v2 = parseInt (document.getElementById("value2").value);
+            let call = document.getElementById("calAll").value;
+            let result;
+
+            switch(call) {
+                case "+" : result = v1 + v2;
+                            break;
+                case "-"  : result = v1 - v2;
+                            break;
+                case "*" : result = v1 * v2;
+                            break;
+                case "/" : result = v1 / v2;
+                            break;
+            }
+            console.log("result", result);
+            document.getElementById("result").value = result;
+        }
+        function removeAll(){
+            document.getElementById("value1").value = "";
+            document.getElementById("value2").value = "";
+            document.getElementById("calAll").value = "";
+            document.getElementById("result").value = "";
+            
+
+        }
+
+
+
+    </script>
+
+    
+</body>
+</html>
