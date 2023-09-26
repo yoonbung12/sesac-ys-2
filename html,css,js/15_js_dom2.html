@@ -34,13 +34,15 @@
         <div class="box red"></div>
         <div class="box orange"></div>
         <div class="box yellow"></div>
+
     </div>
     <!-- input 태그를선택해ㅐ서 placeholder 속성 추가 -->
     <input type="text" name="name" />
 
     <div>
         <button type="button" onclick="twinkle()">반짝여라</button>
-        <button type="button" onabort="addPlaceHolder()">placeholder추가</button>
+        <button type="button" onclick="addPlaceHolder()">placeholder추가</button>
+        <button type="button" onclick="addBox()">box추가</button>
     </div>
 
     <script>
@@ -58,7 +60,7 @@
             box1.classList.toggle("red")
             // if(box1.classList.contains("red"))  box1.classList.remove("red")
             // else box1.classList.add("red")
-            boxes[1].classList.remove("orange");
+
             
 
         }
@@ -82,6 +84,22 @@
         console.log(boxes[1].nextElementSibling); //이전 형제 요소 하나
         console.log(boxes[1].previousElementSibling);
 
+        function addBox(){
+            // container 선택을 해야한다~~~!!
+            const container2 = document.querySelector(".container");
+
+            // 추가할  요소를 만들어야 된다.
+            const newBox = document.createElement("div")
+            // newBox.classList.add("box"); //class를 통해서 접근한다.
+            // newBox.classList.add("red");
+            newBox.className = "box red";
+            // container의 자식으로  추가를 한다(append, appendChild()).
+            // container2.appendChild(newBox);
+            container2.append(newBox);
+            
+
+
+        }
 
 
     </script>
