@@ -35,5 +35,55 @@
         <div class="box orange"></div>
         <div class="box yellow"></div>
     </div>
+    <!-- input 태그를선택해ㅐ서 placeholder 속성 추가 -->
+    <input type="text" name="name" />
+
+    <div>
+        <button type="button" onclick="twinkle()">반짝여라</button>
+        <button type="button" onabort="addPlaceHolder()">placeholder추가</button>
+    </div>
+
+    <script>
+        let boxes = document.querySelectorAll(".box");
+        let box1 = boxes[0];
+        box1.innerHTML = "hello"; //index를 추가해야 찾아간다!!!
+
+        console.log(box1.classList);
+
+        // box1.classList.add();
+        box1.classList.remove("red");
+
+        function twinkle(){
+            // toggle 사용하면 편함
+            box1.classList.toggle("red")
+            // if(box1.classList.contains("red"))  box1.classList.remove("red")
+            // else box1.classList.add("red")
+            boxes[1].classList.remove("orange");
+            
+
+        }
+        // input 태그를 선택해서 placeholder 속성추가
+        let input = document.querySelector("input");
+        function addPlaceHolder(){
+            input.setAttribute("placeholder", "이름을 입력하세요");
+            input.setAttribute("id", "input_name");
+        }
+
+
+        //특정 요소의 자식 요소들에 접근
+        const container = document.querySelector(".container");
+        console.log(container.children[1]); //children은 배열을 반환.
+
+        //특정 요소의 부모 요소에 접근
+        console.log(box1.parentNode); //parentNode 는 기본적으로 하나의 요소만 반환
+
+        //특정 요소의 형제 요소에 접근
+        console.log(box1.nextElementSibling); // 다음 형제 요소 하나
+        console.log(boxes[1].nextElementSibling); //이전 형제 요소 하나
+        console.log(boxes[1].previousElementSibling);
+
+
+
+    </script>
 </body>
 </html>
