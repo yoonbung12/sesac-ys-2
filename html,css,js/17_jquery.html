@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Jquery</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 400px;
+            background-color: beige;
+            /* 정렬 방식을 바꿔놓을려고 한거 */
+            display: flex; 
+            flex-wrap: wrap;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <input type="text" name="name" id="input" value="bonggu" />
+    <button type="button" onclick="useVal()">val() 사용하기</button>
+    <button type="button" onclick="useAttr()">Attr() 사용하기</button>
+
+
+    <span id="span1"> hello</span>
+    <button type="button" onclick="useCss()">css함수 사용하기</button>
+    <button type="button" onclick="useText()">text함수 사용하기</button>
+    
+    <div class="container">
+        <div class="box red" id="red"></div>
+        <div class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+    <button type="button" onclick="useAppend()">append()사용하기</button>
+    <button type="button" onclick="useRemove()">remove()사용하기</button>
+    <button type="button" onclick="useParent()">useParent()사용하기</button>
+    <button type="button" onclick="controlClass()">controlClass조작하기</button>
+
+    <script>
+
+        // Jquery는 다 함수다!!!!
+        //$("선택자").동작함수();
+        //document.get~~~~  / document.querySelector~~~
+        // 요소.innerHTML / .append()
+
+        //기본 문법
+        // # = id
+        // $("#input").append()
+        console.log($("#input"));
+
+
+        function useVal(){
+        // id가 input안 태그를 선택하여, 그 input 의 value를 가져오는 용도
+        const value = $("#input").val();
+        //const value =  document.getElementById("input").value; js버전(위랑 차이가 있다.)
+        console.log(value);
+
+
+        //id 가 input안 태그를 선택하여 , 그 input의 value를 설정하는 코드
+        $("#input").val("설정하고 싶은값");
+        // document.getElementById("input").value = "설정하고 싶은값 "; /위랑 차이가 있다.
+
+        }
+
+        
+
+        function useCss( ){
+            // .css() : style을 변경
+            const span = $("#span1");
+            $("#span1").css("font-size", "100px");
+            span.css("color", "blue");
+            // $("#span1").css("color", "blue");
+
+            // js 코드로 한다면?
+            // const span = document.getElementById("span1");
+            // span.style = "font-size: 30px; color: blue";
+        }
+
+        function useAttr(){
+            $("#input").val("");
+            $("#input").attr("placeholder", "이름을 입력하세요");
+            // js: setAttributes()
+
+        }
+
+        function useText(){
+            // innerText랑 같다
+            // $("#span1").text("heloooooooooo~");
+
+            //innerHTML
+            $("#span1").html("hello<b>bonggu</b>");
+        }
+
+        function useAppend() {
+            //이거 자주 쓰인다 기억하도록~~~!!!!!!!!
+            // .container의 마지막 자식으로 추가
+            $(".container").append(`<div class="box red"></div>`); //``(빽틱)
+            
+            // .container의 첫번째 자식으로 추가
+            $(".container").prepend(`<div class="box red"></div>`);
+
+            //.containerdml 앞 형제로 추가
+            $(".container").before(`<div class="box red"></div>`);
+
+            //.containerdml 뒤 형제로 추가
+            $(".container").after(`<div class="box red"></div>`);
+
+
+        }
+        //이것도 자주 쓰이고
+        function useRemove(){
+
+            // $(".box.orange").remove();
+
+            // const container = document.querySelector(".container");
+            // container.innerHTML = "";
+            $(".container").empty(); //container안의 내용을 다 지워버리겠다.
+        }
+
+        function useParent() {
+            // parent()
+            console.log("parent", $(".box.red").parent())
+            // parents()
+            console.log("parents",$(".box.red").parents())
+
+            // next()
+            console.log("next" , $(".box.orange").next())
+            // prev()
+            console.log("prev" , $(".box.red").prev())
+            // children()
+            console.log("children", $(".box.red").children);
+
+        }
+
+        //이것도 자주 쓰인다~~~
+        function controlClass(){
+            const redBox = $("#red")
+            // if(redBox.hasClass("red")) redBox.removeClass("red");
+            // else redBox.addClass("red")
+            //$(".box.red").addClass("")
+            // $("#red").removeClass("red")
+            redBox.toggleClass("red");
+        }
+
+
+    </script>
+</body>
+</html>
