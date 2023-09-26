@@ -96,8 +96,8 @@
             newBox.className = "box red";
 
             // container의 마지막 자식으로   추가를 한다(append, appendChild()).
-            // container2.appendChild(newBox);
-            // container2.append(newBox);
+            // container2.appendChild(newBox); //Node 객체만 남길수 있다.
+            // container2.append(newBox); //문자열도 인자로  넘길수  있다
 
             //container의 첫번째 자식으로 추가를 한다.(prepend)
             // container2.prepend(newBox);
@@ -120,6 +120,7 @@
             // 이거는 그닥 왜쓸까?
             // const container3  = document.querySelector(".container");
             // container3.removeChild(container.children[1]);
+           //const add =  container3.removeChild(container.children[1]); //잔상을 남길수 있다.
 
 
 
