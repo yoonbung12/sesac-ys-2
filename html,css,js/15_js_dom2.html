@@ -43,6 +43,7 @@
         <button type="button" onclick="twinkle()">반짝여라</button>
         <button type="button" onclick="addPlaceHolder()">placeholder추가</button>
         <button type="button" onclick="addBox()">box추가</button>
+        <button type="button" onclick="removeBox()">box삭제</button>
     </div>
 
     <script>
@@ -89,14 +90,35 @@
             const container2 = document.querySelector(".container");
 
             // 추가할  요소를 만들어야 된다.
-            const newBox = document.createElement("div")
+            const newBox = document.createElement("div") //무조건 태그 이름이 들어와야 한다. 다른거는 안된다.
             // newBox.classList.add("box"); //class를 통해서 접근한다.
             // newBox.classList.add("red");
             newBox.className = "box red";
-            // container의 자식으로  추가를 한다(append, appendChild()).
+
+            // container의 마지막 자식으로   추가를 한다(append, appendChild()).
             // container2.appendChild(newBox);
-            container2.append(newBox);
+            // container2.append(newBox);
+
+            //container의 첫번째 자식으로 추가를 한다.(prepend)
+            // container2.prepend(newBox);
+
+            //container의 형제로 추가를 한다.(before, after)
+            // container2.before(newBox);
+            container2.after(newBox);
+
+        }
+        function removeBox(){
+            //삭제하고 싶은 요소 선택
+            const orangeBox = document.querySelector(".box.orange");
+
+            //삭제한다
+            // orangeBox.remove();
             
+            // 2번 방법
+            //삭제하고 싶은 요소의 부모 요소를 선택해서 자식으로 접근
+            // 이거는 그닥 왜쓸까?
+            const container3  = document.querySelector(".container");
+            container3.removeChild(container.children[1]);
 
 
         }
