@@ -107,18 +107,20 @@
             container2.after(newBox);
 
         }
+
         function removeBox(){
             //삭제하고 싶은 요소 선택
             const orangeBox = document.querySelector(".box.orange");
 
             //삭제한다
-            // orangeBox.remove();
+            orangeBox.remove();
             
             // 2번 방법
             //삭제하고 싶은 요소의 부모 요소를 선택해서 자식으로 접근
             // 이거는 그닥 왜쓸까?
-            const container3  = document.querySelector(".container");
-            container3.removeChild(container.children[1]);
+            // const container3  = document.querySelector(".container");
+            // container3.removeChild(container.children[1]);
+
 
 
         }
