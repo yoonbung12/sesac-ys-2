@@ -36,11 +36,13 @@
     <div class="container"></div>
     <div class="container"></div>
 
+    <input type="password" name="pw" />
+
     <script>
         console.log(window);
         // 동적 바인딩, 정적 바인딩(window)
         // 화살표 함수 : 정적 바인딩이다, 부모 요소의 this를 저장함. $(".container").click() => {}
-        // function함수 : 동적 바인딩(호출되는 때를 고려하여 this를 결정,동적으로 바인딩 된다..)
+        // function함수 : 동적 바인딩(호출되는 때를 고려하여 this를 결정,동적으로 바인딩 된다..) -- (이벤트를 방생시킨 요소)
         $(".container").click(function(){ //화살표 함수로 사용하면 this를 못사용 한다....!!!
             //익명함수를 날려볼것!!!!
             // event가 걸린 요소를 this에 담음 (모든 요소를 선택하는 것이 아닌 내가 선택한 요소만 바뀐다)!!!
@@ -49,6 +51,49 @@
             $(this).css("background-color", "blue");
             // $(".container").css("background-color", "red");
         })
+
+        // 마우스가 올라갔을때 실행시키고 싶은 코드 
+        $(".container").mouseover(function(){
+
+        })
+        // 마우스가 나갔을때  실행시키고 싶은 코드 
+        $(".container").mouseout(function(){
+
+        })
+        
+        // hover : mouseover / mouseout 을 한번에 지정
+        $(".container").hover(function(){
+            //마우스가 들어갔을때
+        }, function(){
+            //마우스가 나갔을때
+        })
+
+        $(document).scroll(function(){
+            if(document.body.scrollHeight >= "스크롤 위치"){
+                //하고 싶은 동작
+            }
+            console.log(document.body.scrollHeight);
+            console.log("hello");
+        })
+
+        // keydown : 선택한 요소에서 키보드를 누르는 이벤트가 발생할 경우
+        // keyup : 선택한 요소에서 키보드를 때는 이벤트가 발생할 경우
+        $("input[name=pw").keyup(function(event){
+            console.log("key:",event.key) // target, key, 
+            if(event.key == "Enter")console.log("value:",this.value) // input태그에 입력한 값이 잘 찍히는지 확인하기위해 (로그인이라는 함수가 있을때 사용해도 좋다. login() )
+            //if(event.keyCode == 13) console.log("value:", this.value);
+        });
+
+        //on : 이벤트를 걸겠다...(어떤 이벤트를 걸지 미정이다.)
+        $("선택자").on("이벤트명", "핸들러 함수");
+
+         // on: 이벤트를 걸겠다. (어떤 이벤트? 미정!)
+        //  $(".container").on("click", function(event){
+            
+        //     $(this).css("background-color", "red");
+
+        // });
+
     </script>
 
 
