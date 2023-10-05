@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .upload{
+
+        }
+        table {
+            margin-left: 600px;
+            width: 900px;
+            text-align: center;
+            
+        }
+        thead {
+            font-size: 3em;
+        }
+        .tfont {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        날짜:  <input type="text" id="date" /><br>
+        내용: <input type="text" id="content" />
+    </form>
+    <button type="button"  onclick="upload()">작성 </button>
+
+
+    <table id="calinder">
+        <caption style="color: green; font-size: 3em; text-align: center;" >
+            2022년 7월
+        </caption>
+        <thead>
+            <tr>
+                <th style="color: red;" class="first">일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+        </thead>
+        <tbody class="tfont">
+            <tr >
+                <td style="color: red;" class="first"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr >
+                <td style="color: red;" class="first">3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr >
+                <td style="color: red;" class="first">10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr >
+                <td style="color: red;" class="first">17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+            <tr >
+                <td style="color: red;" class="first">24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        let date; // 2-4를 해결하기 위한 
+
+        
+        // 클릭했을시 날짜 input  박스에 들어가야함
+        $("td").on("click", function(){
+            let day = $(this).text();
+            console.log(this);
+            $("#date").val(day);
+            // console.log($(this).text);
+            date = this;
+            console.log(date);
+        })
+
+        function upload(){
+            // 특정 날짜에 내용을 작성버튼을 눌렀을시 값이  들어가야함 
+            let content = $("#content").val(); // content에 들어간 값 확인하고
+            console.log(date);
+            console.log(content);
+
+            //값 넣기
+            $(date).append(content);
+
+        }
+    </script>
+</body>
+</html>
