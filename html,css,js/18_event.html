@@ -6,8 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>EventListener</title>
+    <script>
+        //아래 코드는 container클래스를 가진 div 태그가 로드되기 전에 실행을 하게됨
+        console.log($(".container"));
+
+        // 로딩 이벤트 : html이 로드된후 실행할 코드 
+        $(document).ready(function(){ //핸들러(hamdler)
+            //body 가 로드된 후 실행시키고 싶은 코드
+            console.log($(".container"));
+        })
+        
+        // jquery3.xxx부터 권장되는 방식
+        $(function(){
+            console.log($(".container"));
+        })
+    </script>
+    <style>
+        .container{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+
+        }
+    </style>
 </head>
 <body>
-    
+    <!-- 로딩 이벤트 : html이 로드된후 실행할 코드 -->
+    <div class="container"></div>
+    <div class="container"></div>
+
+    <script>
+        console.log(window);
+        // 동적 바인딩, 정적 바인딩(window)
+        // 화살표 함수 : 정적 바인딩이다, 부모 요소의 this를 저장함. $(".container").click() => {}
+        // function함수 : 동적 바인딩(호출되는 때를 고려하여 this를 결정,동적으로 바인딩 된다..)
+        $(".container").click(function(){ //화살표 함수로 사용하면 this를 못사용 한다....!!!
+            //익명함수를 날려볼것!!!!
+            // event가 걸린 요소를 this에 담음 (모든 요소를 선택하는 것이 아닌 내가 선택한 요소만 바뀐다)!!!
+            console.log(this); 
+            //window()
+            $(this).css("background-color", "blue");
+            // $(".container").css("background-color", "red");
+        })
+    </script>
+
+
 </body>
 </html>
