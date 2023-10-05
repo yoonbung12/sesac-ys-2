@@ -69,11 +69,15 @@
         })
 
         $(document).scroll(function(){
-            if(document.body.scrollHeight >= "스크롤 위치"){
+            // if(document.body.scrollHeight >= "스크롤 위치")
+            //document의 높이를 구함.
+            // 현재 스크롤 위치 : $(window).scrollTop()
+            if($(document).height() - $(window).height() == $(window).scrollTop()){
+                console.log("hello");
                 //하고 싶은 동작
             }
             console.log(document.body.scrollHeight);
-            console.log("hello");
+
         })
 
         // keydown : 선택한 요소에서 키보드를 누르는 이벤트가 발생할 경우
