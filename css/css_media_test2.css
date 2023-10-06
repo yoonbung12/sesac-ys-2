@@ -1,0 +1,76 @@
+:root {
+    --nav-height-lg: 100px;
+    --nav-height-sm: 60px;
+}
+body{
+    margin: 0;
+    
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Header */
+header{
+    width: 100%;
+    height: var(--nav-height-lg) ;
+    z-index: 100;
+    /* position: fixed */
+}
+
+/* 768px 보다 클때  */
+header .inner {
+    display: flex;
+    justify-content: center;    
+    background-color: lightblue;
+    height: 100%;
+  }
+
+/* LOGO */
+header .inner .logo {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 2em;
+  }
+
+header .inner .menu {
+    display: flex;
+    gap: 1em;
+    font-weight: 700;
+
+  }
+
+header .inner .menu li {
+    background-color: rgba(0, 0, 0, 0);  
+}
+/* 미디어 쿼리 작성 768px 이하일 때  */
+@media screen and (max-width: 768px) {
+    header {
+        height: var(--nav-height-sm);
+    }
+    header .inner {
+        flex-direction: column;
+
+    }
+    header .inner .menu {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        top: 90px;
+        width: 100%;
+        background-color: rgba(225, 236, 236 );
+    }
+
+    header .inner  .inner li {
+        font-weight: 400;
+    }
+
+    header .inner .logo {
+        position: relative;
+        top: 80px;
+    }
+}
+
