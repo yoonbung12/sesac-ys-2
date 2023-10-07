@@ -12,6 +12,7 @@
         .upload{
 
         }
+
         table {
             margin-left: 600px;
             width: 900px;
@@ -20,6 +21,16 @@
         }
         thead {
             font-size: 3em;
+        }
+        td{
+            /* 여기도 설정할것 
+            
+            cal 함수 사용할것 
+            width: calc(100%/7);
+            height: 80px;
+            vertical-align: top;
+            */
+            
         }
         .tfont {
             font-size: 3em;
@@ -105,8 +116,9 @@
         
         // 클릭했을시 날짜 input  박스에 들어가야함
         $("td").on("click", function(){
-            let day = $(this).text();
+            let day = $(this).text(); // this 사용하면 내가 누른 td값 가져옴!!!
             console.log(this);
+            // 요소.value = ------javascript
             $("#date").val(day);
             // console.log($(this).text);
             date = this;
