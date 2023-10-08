@@ -32,12 +32,29 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: auto;
       }
       img {
           margin-top: 100px;
-          margin-left: 200px;
+          margin-left: 150px;
           width: 500px;
           height: 500px;
+      }
+
+      section form .countAmount{
+        
+        margin-left: 700px;
+        text-align: center;
+        background-color: rgb(202, 197, 197);
+        width: auto;
+        height: 50px;
+
+      }
+
+      p {
+          text-align: right;
+          margin-right: 400px;
+          
       }
 
         
@@ -113,14 +130,30 @@
         
                 <!-- section 파트 -->
         <section class="flex">
-            <form>
+            <form class="pasta" name="pasta" action="#" method="GET">
                 <div class="pastaJpg">
-                    <div class="container">
-                     <img src="../img/pasta.png"  />
-                     <span style="margin-left: 20px;">이거는 남녀노소 즐겨먹기 편한 파스타 입네다</span>
-                    </div>
-                    
+                        <div class="container">
+                        <img src="../img/pasta.png"  />
 
+                        <span style="margin-left: 20px;">이거는 남녀노소 즐겨먹기 편한 파스타 입니다</span>
+                        <!-- <br/> -->
+                        <div class="countAmount" >
+                            <input name="pastaVongole" type="hidden" value=""/>
+                            <input name="gprice" type="hidden" id="price" value="12000" />
+                            <input type="button" class="countPlus"   id="plus" value="+" />
+                            <input name="amount" type="text" id="amount" value="1" style="width: 100px;" />
+                            <input type="button" class="countMinus"  id="minus" value="-" />
+                            <p class="">
+                                <span class="totalCount" style="text-align: left; margin-bottom: 20px;">총 상품 금액</span>
+                                <span id="totalPrice">12000</span>
+                            </p> 
+                        </div>
+                            <!-- 가격, 이름  -->  
+                        <!-- 물건 수량 정하는 것 하기 -->
+                        <div>
+
+                        
+                    </div>
                  </div>
                  
             </form>
@@ -130,7 +163,74 @@
 
 
     <script>
-        
+        // (+,-) 버튼 클릭시 변화해야함 가격, 수량, 총가격 
+        // 변수 선언(plus,minus,amount, totalPrice)
+        let price;
+        let amount;
+        let totalPrice;
+
+        $(document).ready(function(){
+            price = $('#price').val();
+            amount = $('#amount').val();
+
+            // 버튼 이벤트(+)
+            $("#plus").click(function(){
+                amount++;
+                totalPrice = price * amount;
+
+                console.log(amount);
+                console.log(totalPrice);
+
+                $('#totalPrice').text(totalPrice); //입력해야 해서 text사용
+                $('#amount').val(amount);
+            })
+            $('#minus').click(function(){
+                amount--;
+                totalPrice = price * amount;
+                // 만약 0이 되면 안되니까 막아냐야 한다...!!!!
+                if(amount <= 0) {
+                    amount = 1;
+                    totalPrice = price * amount;
+                }
+
+                console.log(amount);
+                console.log(totalPrice);
+
+                $('#totalPrice').text(totalPrice);
+                $('#amount').val(amount);
+
+            })
+
+
+
+        })
+
+        // $("#plus").on("click", function(){
+        //     price = $('#price').val();
+        //     plus = $('#plus').val();
+        //     amount = $('#amount').val();
+        //     totalPrice = $('#totalPrice').val();
+
+        //     console.log(plus);
+        //     console.log(price);
+        //     console.log(amount);
+
+        //     amount++;
+        //     totalPrice = price * amount;
+
+        //     console.log(totalPrice);
+
+        //     $('#amount').text(amount);
+        //     $('#totalPrice').text(totalPrice);
+
+
+        // });
+
+
+
+
+
+
 
     </script>
 
