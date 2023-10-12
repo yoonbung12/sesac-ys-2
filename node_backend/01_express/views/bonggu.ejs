@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- header가져오기 -->
+    <%-include("header.ejs") %>
     <%=name %>
     <% for(let i = 0; i < product.length; i++) { %>
     <div>상품 : <%=product[i]%></div>    
     <% } %>
-    <!-- header가져오기 -->
-    <!-- <-include("header.ejs") > -->
+
 
     <!-- ejs 태그 안에 오는 자바스크립트 코드는 한줄로 끝나야 함...아니면 에러가 발생한다.. -->
     <!-- ejs 태그 안에 바로 = 이 오면  = 뒤에 있는 변수나 값을 html로 노출 시킨다... -->
