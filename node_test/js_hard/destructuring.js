@@ -53,3 +53,25 @@ const word1 = "abc";
 const word2 = "xyz";
 const totalWord = [...word1, ...word2];
 console.log(totalWord);
+
+const obj2 =  {
+    name: "bonggu",
+    age: 25,
+    gender: "남"
+}
+const obj3 = {
+    ...obj2, 
+    hobby: "kickBoxing"
+};
+console.log(obj3);
+
+
+const values = [10, 20, 30];
+function get(a, ...rest){
+    console.log("a",a); // 10출력
+    console.log("rest", rest); // [ 10 , 20]
+}
+
+get(...values);
+
+// ...[10,20,30] => 10,20,30
