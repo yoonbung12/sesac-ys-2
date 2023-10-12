@@ -1,0 +1,4 @@
+node_modules/
+package-lock.json
+# *.json 은 확장자가 json인 모든것을 무시하겠다
+# !package.json 은 이것만 제외한다.
