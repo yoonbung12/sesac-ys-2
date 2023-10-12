@@ -41,8 +41,20 @@ app.get("/test/index" , function(req, res){
 
 });
 
-app.get("/bonggu", function(req, res){
-    res.render("bonggu");
+// ------------------------------------------
+// 클라이언트가 접속하는 주소(정적 주소 [__dirname])
+// app.use("/static", express.static(__dirname + "/static"));
+// __dirname : ~~~~/01_express/static에 클라이언트가  / static 주소이름으로 들어 올 수 있다.
+
+app.use("/public", express.static(__dirname + "/static"));
+// __dirname : ~~~~/01_express/static에 클라이언트가  / public 주소이름으로 들어 올 수 있다.
+// -------------------------------------------
+
+app.get("/bonggu",  function(req, res){
+    res.render("bonggu", {
+        name: "bonggu",
+        product: ["운동화","잠바", "패딩"]
+    });
 });
 
 // 서버를 연다~~
