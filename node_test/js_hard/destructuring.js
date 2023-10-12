@@ -48,3 +48,8 @@ console.log(arr3);
 const hello = [..."hello"];
 //  hello = ["h", "e", "l", "l", "o"];
 console.log(hello);
+
+const word1 = "abc";
+const word2 = "xyz";
+const totalWord = [...word1, ...word2];
+console.log(totalWord);
