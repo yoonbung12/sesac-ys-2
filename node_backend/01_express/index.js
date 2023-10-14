@@ -37,6 +37,7 @@ app.get("/test", function(req, res){
 app.get("/test/index" , function(req, res){
     // render 메소드의 기본 dir "./views" 
     //res.render("index");
+    console.log(__dirname);
     res.render("test/index"); //views폴더안에 ->test폴더안에 ->index가 있다.
 
 });
