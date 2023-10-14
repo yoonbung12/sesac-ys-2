@@ -62,7 +62,59 @@
 // });
 
 /// --------promise로 변경--------------------
-function add(n1, n2){
+// function add(n1, n2){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function(){
+//             let result = n1 + n2;
+//             resolve(result);
+//         }, 1000);
+//     });
+    
+// }
+
+// function mul(n){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function() {
+//             let result = n * 2;
+//             reject("오류 발생");
+//             // resolve(result);
+//         }, 700);
+//     })
+   
+// }
+
+// function sub(n){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function() {
+//             let result = n - 1;
+//             resolve(result);
+//         }, 500);
+//     })
+   
+// }
+
+// // then 내부에서 promise에서 받아온 promise객체면 이어서 then 사용 가능하다
+// add(4, 3)
+// .then((result) => { 
+//     console.log(`1: `, result);
+//     return mul(result);
+// })
+// .then((result) => {
+//     console.log(`2: `, result);
+//     return sub(result);
+// })
+// .then((result) => {
+//     console.log(`3: `, result);
+     
+// })
+// .catch((err) => {
+//     console.log(`error`);
+// });
+
+//  -------------- promise 변경 끝--------------------------
+
+// ---------(promise)async / await 사용 -------------------
+async function add(n1, n2){
     return new Promise((resolve, reject) => {
         setTimeout(function(){
             let result = n1 + n2;
@@ -76,8 +128,8 @@ function mul(n){
     return new Promise((resolve, reject) => {
         setTimeout(function() {
             let result = n * 2;
-            reject("오류 발생");
-            // resolve(result);
+            // reject("오류 발생");
+            resolve(result);
         }, 700);
     })
    
@@ -93,22 +145,21 @@ function sub(n){
    
 }
 
-// then 내부에서 promise에서 받아온 promise객체면 이어서 then 사용 가능하다
-add(4, 3)
-.then((result) => { 
-    console.log(`1: `, result);
-    return mul(result);
-})
-.then((result) => {
-    console.log(`2: `, result);
-    return sub(result);
-})
-.then((result) => {
-    console.log(`3: `, result);
-     
-})
-.catch((err) => {
-    console.log(`error`);
-});
+// 1. async 함수는 promise를 return한다..
+// 2. await 키워드는 astnc 함수 내부에서만 사용이 가능하다!!!!
+async function exec(){
 
-//  -------------- promise 변경 끝--------------------------
+    const x = await add(3, 4); // x = 7
+    console.log(`1: `, x);
+    const y = await mul(x); // y = 14
+    console.log(`2: `, y);
+    const z = await sub(y); // z = 13
+    console.log(`3: `, z);
+
+    await test(); // await 아래에 ...이 있으면 왜 썼냐고 물어보는것
+}
+
+//실행 시키는 함수
+exec();
+
+
