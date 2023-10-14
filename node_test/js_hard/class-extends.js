@@ -31,12 +31,26 @@ class Apartment extends House {
         console.log(`입주는 ${this.year + 1}년 부터 시작했습니다.`);
 
     };
-
-
 }
+
+
 const apart = new Apartment("트라펠리스", 2015, 25);
 console.log(apart.name, apart.floor);
 apart.age();
+
+    // 오버로딩: 똑같은 이름으로 여러개의 함수를 선언하는것~~~(매개변수의 개수를 )
+    // 그러나 자바 스크립은 오버로딩이 없다(할수가 없다 이거다..)...자바라 다름!!!
+    // function test(a, b){
+    //     console.log(`a: ${a}, b: ${b}`);
+    // }
+    // 해결하고 싶으면 ? 조금의 기술을 쓰셔서 하나의 함수로 조건에 따라서 잘 실행되도록 하기..
+    function test(a,b = 0,c = 0){
+        console.log(`a: ${a}, b: ${b}, c: ${c}`);
+        return a + b + c;
+    }
+    test(2,5);
+
+
 
 
 
