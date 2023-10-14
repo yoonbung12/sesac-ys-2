@@ -1,31 +1,56 @@
-// 강의 자료에 나와있는거 사용해보자!!!
-class Car {
-    
-    // constructor
-    constructor(carName, model, carCost){
-        this.carName = carName;
-        this.model = model;
-        this.carCost = carCost;
-    }
-    // sound(메소드)
-    sound(){
-        console.log("부릉부릉!!!");
-    }
+class Shape {
 
+    constructor(row, colum){ //가로, 세로(높이)
+        this.row = row;
+        this.colum = colum;
+    };
+    getArea(){
+        return this.row * this.colum;
+    };
+}
+let rec1 = new Shape(3,4);
+console.log(rec1.getArea());
+
+// 직사각형(Retangle)
+class Retangle extends Shape{
+    
+    constructor(row, colum){
+        super(row, colum);
+        
+    };
+    getArea(row, colum){
+        return  Math.sqrt((this.row) *(this.row) + (this.colum)*(this.colum) ); 
+    };
+}
+//삼각형 넓이 구하는 클래스
+class Triangle extends Shape{
+
+    constructor(row, colum){
+        super(row, colum);
+    };
+    getArea(row, colum){
+        return (this.row * this.colum)/2;
+    };
 }
 
-const car1 = {
-    carName: "파나메라",
-    model: "포르쉐",
-    carCost: 100000
-};
-const car2 = {
-    carName: "벤츠cls",
-    model: "",
-    carCost: 100000
-};
-const car3 = {
-    carName: "파나메라",
-    model: "포르쉐",
-    carCost: 100000
-};
+//circle 클래스 만들기
+class Circle extends Shape{
+
+    constructor(row, colum, radius){
+        super(row, colum);
+        this.radius;
+    };
+
+    getArea(){
+        
+    }
+}
+
+
+// 출력해햐 하는 부분
+// 사각형 대각선 길이 구하기
+let square = new Retangle(2, 5);
+console.log(square.getArea());
+//삼각형 넓이 반환
+let triangle = new Triangle(2, 3);
+console.log(triangle.getArea());
