@@ -53,10 +53,18 @@ app.get("/get", function(req, res){
 // post 요청은 url로 직접 요청하는 것은 불가능하다!!
 // post 요청에 대한 데이터는 req.bod에 담아서 온다..
 // 정보가 숨겨진다. (url에 노출되지 않는다.) 데이터를 새로 생성하는 요청에 주로 사용(CRUD중 C를 의미하는 요청에 사용)
-app.post("/post", function(req, res){
-    console.log(req.body);
-    res.send("post 요청 성공");
+// app.post("/post", function(req, res){
+//     console.log(req.body);
+//     res.send("post 요청 성공");
 
+// });
+
+app.post("/post/ver2", function(req, res){
+    console.log(req.body);
+    res.render("result", {
+        name: req.body.name,
+        email: req.body.email,
+    });
 
 });
 
