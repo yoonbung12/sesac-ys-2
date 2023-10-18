@@ -28,10 +28,13 @@ app.get("/get", function(req, res){
 //     //     name: req.body.name,
 //     //     gender: req.body.gender,
 
-
-
 //     // })
 // })
+app.post("/post/join", function(req, res){
+    console.log(req.body);
+    res.send("성공이요");
+})
+
 
 app.listen(PORT, function(){
     console.log(`Server OPEN: ${PORT}`);
