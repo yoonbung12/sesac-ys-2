@@ -32,3 +32,14 @@ app.post("/ajax", function(req, res){
     res.send(req.body); 
 
 });
+
+app.get("/axios", function(req, res){
+    console.log(req.query);
+    res.send(req.query); 
+
+});
+
+app.post("/axios", function(req, res){
+    console.log(req.body);
+    res.send(req.body); 
+});
