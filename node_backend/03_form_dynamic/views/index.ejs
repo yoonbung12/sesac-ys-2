@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>동적 폼 전송</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>AJAX</h1>
+    <form name="register">
+        <input type="text" name="id" placeholder="ID"/>
+        <input type="password" name="pw"  placeholder="pw" />
+        <input type="text" name="name" placeholder="이름" /> 
+        <button type="button" onclick="ajaxGet()">ajaxGet전송 </button>
+        <button type="button" onclick="ajaxPost()">ajaxPost전송 </button>
+
+        <!-- 아래 두줄은 일반폼 전송할때(동기 통신) type="submit" -->
+        <!-- input type = submit -->
+        <!-- <button type="submit">제출</button> -->
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        function ajaxGet(){
+            const form = document.forms["register"];
+            //console.log(form);
+            // console.dir(form);
+            // console.log(form.id);
+            // console.log(form.id.value);
+
+            const data ={
+                id: form.id.value,
+                pw: form.pw.value,
+                name: form.name.value,
+            }
+            $.ajax({
+                type: "GET", //form 속성중 메서드에 해당되는것
+                url: "/ajax", //Form 속성중 action
+                data: data,
+                success: function(result){ // 응답을 성공적으로 받았을경우에 대한 이벤트 핸들러
+                        // 매개변수(result)에 응답이 들어온다
+                        console.log(result);
+                        $("#result").html(`ajax get요청 성공 ${result.name}`); // 뒤에 요청 성공 백틱으로 바꿔라
+                    }
+
+            })
+        }
+        function ajaxPost(){
+            const form = document.forms["register"];
+            console.log(form.id);
+            
+            const data ={
+                id: form.id.value,
+                pw: form.pw.value,
+                name: form.name.value,
+            }
+            $.ajax({
+                type: "POST", //form 속성중 메서드에 해당되는것
+                url: "/ajax", //Form 속성중 action
+                data: data,
+                success: function(result){ // 응답을 성공적으로 받았을경우에 대한 이벤트 핸들러
+                        // 매개변수(result)에 응답이 들어온다
+                        console.log(result);
+                        $("#result").html(`ajax Post요청 성공 ${result.name}`); // 뒤에 요청 성공 백틱으로 바꿔라
+                    }
+
+            })
+            
+        }
+    </script>
+</body>
+</html>
