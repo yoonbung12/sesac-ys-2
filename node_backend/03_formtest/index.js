@@ -21,36 +21,19 @@ app.get("/", function(req, res){
     // res.send("안녕 Express다~₩₩"); //두개 다쓰면 에러뜸
     res.render("index");
 });
-app.get("/ajax", function(req, res){
+
+app.get("/axiosGet", function(req, res){
     console.log(req.query);
-    // {key: value, key: value}
-    res.send(req.query); 
-    // res.render("");
+    res.send(req.query);
+    // res.render("index");
 });
-app.post("/ajax", function(req, res){
+
+app.post("/axiosPost", function(req, res){
+    const id = "bonggu12";
+    const pw = "1q2w3e4r";
+    
     console.log(req.body);
-    res.send(req.body); 
-
-});
-
-app.get("/axios", function(req, res){
-    console.log(req.query);
-    res.send(req.query); 
-
-});
-
-app.post("/axios", function(req, res){
-    console.log(req.body);
-    res.send(req.body); 
-});
-
-app.get("/fetch", function(req, res){
-    console.log(req.query);
-    res.send(req.query); 
-
-});
-
-app.post("/fetch", function(req, res){
-    console.log(req.body);
-    res.send(req.body);
+    if(req.body.id == id && req.body.pw == pw){
+        res.send({success: true, message:"성공했구만", name: req.body.name});
+    }
 })
