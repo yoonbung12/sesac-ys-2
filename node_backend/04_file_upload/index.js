@@ -11,6 +11,9 @@ console.log("hi.txt의 확장자: ", path.basename("hi.txt",  path.extname("hi.t
 const app = express();
 const PORT = 8000;
 
+//클라이언트가 uploads 폴더에 저장한 이미지 파일에 접근할 수 있도록, 미들웨어 작성
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
 // upload라는 객체 안에는 미들웨어 함수가 존재. single(), array(), filed()
 // 미들웨어: 요청과 응답 사이에 존재. (next())
 // multer 가 임의의 문자열을 생성해서 그 문자열을 파일 이름으로 만듬.
@@ -27,6 +30,7 @@ const uploadDetail = multer({
             done(null, "uploads/");
         },
         filename: function(req, file, done) {
+            console.log("uploadDetail fileName", req.body);
             console.log(file); // file.originalname, 미니언.webp
             const ext = path.extname(file.originalname); // .webp
             const basename = path.basename(file.originalname, ext ) // 미니언
@@ -66,12 +70,32 @@ app.post("/upload", upload.single("userFile") , function(req, res){
     res.send("파일 업로드");
 });
 
-//
+// 파일상세올리기(detail)
 app.post("/upload/detail", uploadDetail.single("userFile"), 
     function(req, res){
     console.log("file detail",req.file);
     console.log("body detail", req.body);
-    res.send("파일 업로드");
+    // res.send("파일 업로드");
+    res.render("result", {
+        src: req.file.path,
+        title: req.body.title,
+    })
+});
+
+// 파일 여러개 업로드(array사용) - name(input) 하나로 여러개의 파일을 받는 방법
+// req.files 생성
+app.post("/upload/array", uploadDetail.array("userFile") ,function(req, res){
+    console.log("file 여러개 업로드", req.files);
+    res.send("여러개 업로드 성공(ver1)");
+});
+
+// fields() : 파일 여러개 업로드, name이 두개 이상(input이 2개 이상)
+app.post("/upload/fields",
+    uploadDetail.fields([{name: "userFile1"}, {name: "userFile2"}]), 
+    function(req, res){
+        console.log("파일 여러개(ver2):" , req.files);
+        console.log("req.body:", req.body);
+        res.send("여러개의 업로드 성공(ver2)");
 })
 
 app.listen(PORT, function () {
