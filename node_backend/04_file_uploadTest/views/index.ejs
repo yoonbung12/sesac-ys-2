@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>multer테스트</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
     <!-- id, pw, name, age, fileupload -->
@@ -24,5 +26,61 @@
         <button type="submit">회원가입</button>
     </form>
 
+    <h2>동적 fomr전송테스트</h2>
+    <form name="dynamic-upload">
+        <fieldset >
+            <legend>회원가입</legend>
+            id: <input type="text" name="id" />
+            <br />
+            pw: <input type="password" name="pw" />
+            <br />
+            name: <input type="text" name="name" />
+            <br />
+            age: <input type="number" name="age" />
+            <br />
+            <input type="file" name="userFile" />
+        </fieldset>
+        <button type="button" onclick="dynamicUpload()">회원가입</button>
+    </form>
+    <div id="dynamic-result"></div>
+
+    <script>
+        function dynamicUpload(){
+            const form = document.forms["dynamic-upload"];
+            const formData = new FormData();
+            // 데이터 추가할려고 append사용
+            console.log("id", form.id.value);
+            console.log("pw", form.pw.value);
+            console.log("name", form.name.value);
+            console.log("age", form.age.value);
+            formData.append("id", form.id.value);
+            formData.append("pw", form.pw.value);
+            formData.append("name", form.name.value);
+            formData.append("age", form.age.value);
+            // console.log("value", form.userFile.files);
+            formData.append("userFile", form.userFile.files[0]);
+
+            axios ({
+                method: "post",
+                url: "/upload/dynamic",
+                data: formData,
+                Headers: {
+                    "ContentType":  "multipart/form-data"
+                }
+
+            }).then((res) => {
+                console.log(res.data);
+                const result = document.getElementById("dynamic-result");
+                result.innerHTML = `<img src="/${res.data.src}" width="150px" />
+                                    <h2>"${res.data.id} 님 환영합니다."</h2>
+                                    <h2>"비밀번호는:${res.data.pw}"</h2>
+                                    <h2>"이름: ${res.data.name}"</h2>
+                                    <h2>"나이:${res.data.age}"</h2>
+                
+                ...` 
+
+            })
+        }
+    </script>
 </body>
 </html>

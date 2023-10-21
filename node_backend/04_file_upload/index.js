@@ -96,6 +96,12 @@ app.post("/upload/fields",
         console.log("파일 여러개(ver2):" , req.files);
         console.log("req.body:", req.body);
         res.send("여러개의 업로드 성공(ver2)");
+});
+
+// 동적파일 전송
+app.post("/upload/dynamic",uploadDetail.single("userFile") , 
+    function(req, res){
+        res.send({src: req.file.path});
 })
 
 app.listen(PORT, function () {

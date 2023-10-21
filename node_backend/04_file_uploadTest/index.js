@@ -62,6 +62,16 @@ app.post("/upload/detail", uploadDetail.single("userFile"),
 
     })
 });
+//  동적파일 전송
+app.post("/upload/dynamic", uploadDetail.single("userFile"),
+        function(req, res){
+            res.send({src: req.file.path,
+                    id: req.body.id,
+                    pw: req.body.pw,
+                    name: req.body.name,
+                    age: req.body.age
+            });
+})
 
 
 
