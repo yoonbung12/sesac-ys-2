@@ -1,56 +1,56 @@
 const express = require("express");
 const app = express();
-const PORT =8001;
+const PORT = 8000;
 
-// -----미들워어 설정-----
 app.set("view engine", "ejs");
-
-app.use(express.urlencoded({extended: true}));
-//x-www-form-urlencoded 형태의 데이터 해석
-// extended: true 일 경우 qs 모듈(외부모듈)을 이용, false인 경우 내장모듈인 queryString을 사용.
 app.use(express.json());
-// application/json 형태의 데이터를 해석
+app.use(express.urlencoded({ extended: true }));
 
-// port 열기
-app.listen(PORT, function(){
-    console.log(`PORT 열렸다 ${PORT}`);
+app.get("/", function (req, res) {
+  res.render("index");
 });
 
-// 서버 열리고 테스트로 찍어보자
-app.get("/", function(req, res){
-    // res.send("안녕 Express다~₩₩"); //두개 다쓰면 에러뜸
-    res.render("index");
-});
-app.get("/ajax", function(req, res){
-    console.log(req.query);
-    // {key: value, key: value}
-    res.send(req.query); 
-    // res.render("");
-});
-app.post("/ajax", function(req, res){
-    console.log(req.body);
-    res.send(req.body); 
-
+app.get("/ajax", function (req, res) {
+  console.log(req.query);
+  // { key: value, key: value }
+  res.send(req.query);
 });
 
-app.get("/axios", function(req, res){
-    console.log(req.query);
-    res.send(req.query); 
-
+app.post("/ajax", function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
 });
 
-app.post("/axios", function(req, res){
-    console.log(req.body);
-    res.send(req.body); 
+app.get("/axios", function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
 });
 
-app.get("/fetch", function(req, res){
-    console.log(req.query);
-    res.send(req.query); 
-
+app.post("/axios", function (req, res) {
+  console.log(req.body);
+  const data = {
+    ...req.body,
+    msg: "반가워요",
+  };
+  //   {
+  //     id: ,
+  //     name: ,
+  //     pw: ,
+  //     msg: "반가워요",
+  //   };
+  res.send(data);
 });
 
-app.post("/fetch", function(req, res){
-    console.log(req.body);
-    res.send(req.body);
-})
+app.get("/fetch", function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+app.post("/fetch", function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
+app.listen(PORT, function () {
+  console.log(`Sever Open: ${PORT}`);
+});
