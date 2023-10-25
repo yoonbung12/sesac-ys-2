@@ -44,7 +44,7 @@ const uploadDetail = multer({
 
 app.get("/", function(req, res){
     // res.send("연결 성공이요~~");
-    res.render("index");
+    res.render("index"); 
 })
 
 app.post("/upload/detail", uploadDetail.single("userFile"), 
