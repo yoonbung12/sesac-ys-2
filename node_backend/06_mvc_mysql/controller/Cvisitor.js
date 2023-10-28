@@ -5,6 +5,33 @@ exports.home = (req, res) => {
     res.render("index");
 }
 exports.visitor = (req, res) => {
-    const data = visitor.getVisitor();
-    res.render("visitor", {data: data});
+    // const data = visitor.getVisitor();
+    // res.render("visitor", {data: data});
+    visitor.getVisitor((rows) => {
+        res.render("visitor", {data: rows});
+    });
+
+}
+
+// post / visitor =>  방명록 insert
+exports.postVisitor = (req,res) =>{
+    // insert할 데이터 
+    console.log("req.body",req.body);
+    visitor.insertVisitor(req.body, (id) => {
+        console.log("controller postVisitor", id);
+        res.send({
+            ...req.body,
+            id
+        });
+    });
+
+};
+
+// delete 부분 /visitor/:id => 방명록 삭제
+exports.deleteVisitor = (req, res) => {
+    console.log(req.params)
+    visitor.delVisitor(req.params.id, (result) =>{
+        res.send({result: true});
+    });
+
 }
