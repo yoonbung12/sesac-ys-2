@@ -36,3 +36,13 @@ exports.deleteVisitor = (req, res) => {
     });
 
 }
+
+// PATCH /visitor/:id => 방명록 수정
+exports.patchVisitor = (req, res) => {
+    console.log(req.body);
+  
+    Visitor.patchVisitor(req.body, (result) => {
+      console.log("ctrl getVisitorById: patchVisitor", result);
+      res.send({ result: true });
+    });
+  };
