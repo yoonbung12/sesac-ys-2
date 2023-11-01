@@ -1,73 +1,41 @@
-// mySql연결 파트
-const mysql = require('mysql');
+// 테이블의 구조를 정의
+// orm 은 객체와 db의 table을 매핑하는 기술
+// sequelize를 이용해서 table의 구조를 정의할 필요가 있음.
 
-// createConnection: mysql연결 정보를 받아서 mysql과 연결
-// db 연결한다 > host, user, pw, database
-const conn =  mysql.createConnection({
-    host: 'localhost',
-    user: 'user',
-    password: '1234',
-    database: 'sesac_test'
-});
-//                  콜백함수 받아야함.
-exports.getVisitor = (cb) =>{
-    conn.query(`select * from visitor`, (err, rows) =>{
-        // err 변수가 빈 값이 아니라면, err가 발생했다는 것..
-        if(err){
-            throw err;
-        }
-
-        console.log("visitor",rows);
-        cb(rows);
-    });
-};
-
-exports.insertVisitor = (data, cb) => {
-    // insert into visitor(username, comment) values ('', '');
-    const sql = `insert into visitor(username, comment) values('${data.username}', '${data.comment}')`;
-    conn.query(sql, (err, result) => {
-        if(err) {
-            throw err;
-        }
-
-        console.log("visitor insert", result);
-        cb(result.insertId);
-    })
-}
-
-exports.delVisitor = (id,cb) =>{
-    // 어떤 데이터가 필요한지 ex)delet할 id
-    const sql = `delete from visitor where id = ${id}`;
-    conn.query(sql, (err, result) =>{
-        if(err) {
-            throw err;
-        }
-        let flag = false;
-        if(result.affectedRows){
-            flag = true;
-        }
-        console.log("Visitor delete", result);
-        cb(flag);
-        //cb(true);
-    })
-
-}
-exports.patchVisitor = (data, cb) => {
-    const sql = `UPDATE visitor SET username='${data.name}', comment='${data.comment}' WHERE id=${data.id}`;
-    conn.query(sql, (err, result) => {
-      if (err) {
-        throw err;
+function Visitor(Sequelize, DataTypes) {
+    return Sequelize.define(
+      // 모델(테이블) 정의, sequelize 객체의 define 메소드를 이용해서
+      "visitor", // 테이블 이름
+      {
+        id: {
+          // int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          type: DataTypes.INTEGER,
+          allowNull: false, // true 가 기본 값
+          primaryKey: true, // false 가 기본 값
+          autoIncrement: true,
+        },
+        username: {
+          //  varchar(10),
+          type: DataTypes.STRING(10),
+          // allowNull: true, // true 가 기본 값
+        },
+        comment: {
+          // mediumtext
+          type: DataTypes.TEXT("medium"),
+          // allowNull: true, // true 가 기본 값
+        },
+      }, // 컬럼 정의
+      {
+        tableName: "visitor",
+        freezeTableName: true,
+        // sequelize에서 간혹 단수로 지정해둔 테이블 이름을 sql문을 날릴 떄 복수로 변경을 시키는 경우가 있음.
+        // insert into visitor ~~ => create() =>  insert into visitors ~~~
+        timestamps: false,
+        // insert, update 시에 그 시간을 자동으로 저장하겠다. (creatAt, updateAt) -> 기본값
+        // 저장하지마! => false로 지정
       }
+    );
+  }
   
-      console.log("Visitor.js: ", result);
-      cb(result);
-    });
-  };
-
-// exports.getVisitor = () =>{
-//     return [
-//         {id: 1, username: "bonggu", comment: "HIHIHI다"},
-//         {id: 2, username: "gilgu", comment: "워우워어어~"},
-//     ];
-// };
-
+module.exports = Visitor;
+  
