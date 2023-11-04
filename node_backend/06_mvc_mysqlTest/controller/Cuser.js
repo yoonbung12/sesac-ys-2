@@ -26,6 +26,10 @@ exports.post_signup =  (req, res) => { // 내가 한거 쓸려면 async사용할
             console.log('User create:', result)
             res.send({ result: true })
         })
+        .catch((err) => {
+            console.log("User create: ", err);
+            res.send({result: false});
+        })
 }
 
 // 로그인 파트(로그인 페이지 + 데이터 넘기기)
@@ -35,6 +39,7 @@ exports.signin = (req, res) => {
 exports.post_signin = async (req, res) => {
     // 리더님 해설
     User.findOne({
+                // 컬럼  : 사용자가 입력한값.
         where: { userid: req.body.userid, pw: req.body.pw },
       }).then((result) => {
         console.log('User findOne:', result)
@@ -74,6 +79,7 @@ exports.profile = ( req, res) => {
 }  
 
 exports.profile_edit = (req, res) => {
+                // 프론트 의 값 이랑 같게 할려고 req.body 넣음.
     User.update(req.body,{
         where: {id: req.params.id},
     }).then((result) => {
