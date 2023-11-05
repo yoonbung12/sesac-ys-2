@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>SessionTest</title>
+
+</head>
+<body>
+    <style>
+        #nav {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+        .nav-1, .nav-2, .nav-3 {
+            margin: 7px;
+        }
+    </style>
+    <nav id="nav">
+        <ul>
+            <li>
+                <div class="nav-1">menu1</div>
+            </li>
+        
+            <li>
+                <div class="nav-2">menu2</div>
+            </li>
+
+            <div class="nav-3">
+                <% if (!member) { %>
+                    <li><a   href="/set" >LOGIN</a></li>
+                <% } %>
+            </div>
+            <div>
+                <!-- 로그 인 상태 일때만 logOut으로 바꾼다.. -->
+                <% if (member) { %>
+                    <li><a class="LogLink" href="#" onclick="logout()">LOGOUT</a></li>
+                <% } %>
+            </div>
+        </ul>
+        
+    </nav>
+
+    <!-- ???님 환영합니다. -->
+    <div name="welcome"><%=member%>님 환영합니다.</div>
+    <script>
+
+        
+
+    </script>
+</body>
+</html>
