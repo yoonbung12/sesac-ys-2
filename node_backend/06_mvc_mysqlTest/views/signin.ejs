@@ -30,10 +30,12 @@
         }).then((res) => {
           if (res.data.result == true) {
             alert("로그인 성공");
+            location.href = "/user/profile";
+            // session 적용전=======
+            // var form_info = document.forms["form-info"];
+            // form_info.id.value = res.data.id;
+            // form_info.submit();
 
-            var form_info = document.forms["form-info"];
-            form_info.id.value = res.data.id;
-            form_info.submit();
           } else {
             alert("로그인 실패");
             // form.reset();

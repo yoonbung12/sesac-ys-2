@@ -43,8 +43,17 @@ exports.post_signin = async (req, res) => {
         where: { userid: req.body.userid, pw: req.body.pw },
       }).then((result) => {
         console.log('User findOne:', result)
-        if (result) res.send({ result: true, id: result.id })
-        else res.send({ result: false })
+        // 세션 적용전 ============ 
+        // if (result) res.send({ result: true, id: result.id })
+        // else res.send({ result: false })
+        // 세션 적용후 ============
+        if(result) {
+            req.session.user = result.id
+            res.send({ result: true, id: result.id });
+        } else {
+            res.send({result: false})
+        }
+
       })
 
     // 1)찾아야 할값들 (내가 풀이한것)
@@ -59,24 +68,42 @@ exports.post_signin = async (req, res) => {
 }
 
 // profileEdit 부분
-exports.profile = ( req, res) => {
-    User.findOne({
-        where: {id: req.body.id},
-    }).then((result) => {
-        console.log("User findOne:" , result);
+// 세션 적용전========================
+// exports.profile = ( req, res) => {
+    
+    
+//     User.findOne({
+//         where: {id: req.body.id},
+//     }).then((result) => {
+//         console.log("User findOne:" , result);
 
-        // 만약 조회되지 않는다면 result에 null이 담김.
-        // 따라서 if문으로 result에 값이 있을 경우에 profile을 렌더하도록 함.
-        // if (result) res.render('profile', { data: result })
-        // else res.redirect('/user/signin')
+//         // 만약 조회되지 않는다면 result에 null이 담김.
+//         // 따라서 if문으로 result에 값이 있을 경우에 profile을 렌더하도록 함.
+//         // if (result) res.render('profile', { data: result })
+//         // else res.redirect('/user/signin')
         
-        if(result) {
-            res.render("profile", {data: result});
-        } else {
-            res.redirect("signin");
-        }
+//         if(result) {
+//             res.render("profile", {data: result});
+//         } else {
+//             res.redirect("signin");
+//         }
+//     })
+// }  
+
+// 세션 적용후 =========================
+exports.profile = (req, res) => {
+    if (!req.session.user) {
+      res.redirect('/user/signin')
+      return false
+    }
+  
+    User.findOne({
+      where: { id: req.session.user },
+    }).then((result) => {
+      if (result) res.render('profile', { data: result })
+      else res.redirect('/user/signin')
     })
-}  
+  }
 
 exports.profile_edit = (req, res) => {
                 // 프론트 의 값 이랑 같게 할려고 req.body 넣음.
@@ -106,4 +133,15 @@ exports.profile_delete =(req, res) => {
             res.send({ result: false});
         }
     })
+}
+
+// logout 세션사용
+exports.logout = (req, res) => {
+    if(req.session.user) {
+        req.session.destroy(function(err) {
+            res.send({result: true})
+        })
+    } else {
+        res.send({result: false})
+    }
 }

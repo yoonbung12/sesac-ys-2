@@ -59,6 +59,22 @@
           }
         });
       }
+
+      // logout 부분 
+      function logout(){
+        axios({
+          method: 'delete',
+          url: `/user/logout`,
+        }).then((res) => {
+          if(res.data.result){
+            alert('로그아웃 성공~');
+            document.location.href = "/user/signin";
+          } else {
+            alert("알수없는 이유로 로그아웃을 실패 하였습니다.");
+          }
+        })
+      }
+
     </script>
   </head>
   <body>
@@ -80,6 +96,9 @@
           </button>
           <button class="card__button" type="button" onclick="profileDelete();">
             <span>Delete</span>
+          </button>
+          <button class="card_button" type="button" onclick="logout();">
+            <span>LogOut</span>
           </button>
         </form>
       </section>
