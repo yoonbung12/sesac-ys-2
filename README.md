@@ -7,3 +7,6 @@ SeSac
 -git branch test (ex. 로그인 api )
 
 -git branch  test4
+
+
+-pr test 
