@@ -1,0 +1,19 @@
+const bcrypt = require("bcrypt");
+
+
+const salt = 10; // salt의 수준을 설정
+
+function bcryptPw(pw) {
+    return bcrypt.hashSync(pw, salt);
+}
+
+function comparePw(pw, dbPw){
+    return bcrypt.compareSync(pw, dbPw);
+}
+
+const dbPw = bcryptPw("1234");
+
+
+console.log("pw 1234:",bcryptPw("1234"));
+
+console.log("compare pw: ", comparePw("1234", dbPw));
