@@ -1,9 +1,15 @@
 import './App.css';
+import ClassComponent from './components/ClassComponent';
+import FunctionComponent from './components/FuncComponent';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div >
+
+        <FunctionComponent />
+        {/* <FunctionComponent></FunctionComponent> */}
+
+        <ClassComponent />
     </div>
   );
 }

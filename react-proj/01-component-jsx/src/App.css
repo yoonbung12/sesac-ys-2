@@ -1,0 +1,19 @@
+/* BEM 네이밍 규칙 */
+.FuncComponent__test-css--active {}
+
+
+
+.test-css {
+    background-color: yellow;
+    font-size: 30px;
+}
+
+.wrapper{
+
+    text-align: center;
+
+}
+.wrapper p{
+    background-color: orange;
+    
+}
