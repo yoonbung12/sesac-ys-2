@@ -24,7 +24,7 @@ class StateClass extends Component {
         text: "hello"
     };
 
-    수업
+    //수업
     render() {
         // const { number} = this.state
         return (
