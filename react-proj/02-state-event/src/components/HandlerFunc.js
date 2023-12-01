@@ -1,23 +1,11 @@
 import {useState} from "react";
 function HandlerFunc() {
-    const [color, setColor] = useState("black");
+
     const [text, setText] = useState("검정색 글씨");
     const[msg, setMsg] = useState("안녕하세요");
     const[btn, setBtn] = useState("사라져라");
     const [name, setName] = useState("");
-    const selectList = ["사과", "바나나", "복숭아", "딸기"];
-    const [select, setSelect] = useState("");
-
-    const handleEnter = (e) => {
-        if(e.key == "Enter") {
-            console.log("엔터 눌렀네");
-        }
-    }
-    const handleChangeSelect = (e) => {
-        setSelect(e.target.value);
-        console.log(e.target.value);
-    }
-
+    
     const clickRed = (e) => {
         setColor("Red");
         setText("빨간색 글씨");
@@ -38,6 +26,34 @@ function HandlerFunc() {
 
     }
 
+    // 실습 4번
+    const[fruit, setFruit] = useState("/apple.png");
+    const[backColor, setBackColor] = useState("white");
+    const [color, setColor] = useState("black");    
+
+    const handleEnter = (e) => {
+        if(e.key == "Enter") {
+            console.log("엔터 눌렀네");
+        }
+    }
+    const handleChangeSelect = (e) => {
+        console.log(e.target.value);
+        setFruit(e.target.value);
+
+    }
+
+    const changeBack = (e) => {
+        console.log(e.target.value);
+        setBackColor(e.target.value);
+    }
+
+    const changeColor = (e) => {
+        console.log(e.target.value);
+        setColor(e.target.value);
+    }
+
+    
+
     return (
         <>
             <h3>실습 2번</h3>
@@ -54,23 +70,24 @@ function HandlerFunc() {
             </h2>
 
             <h3>실습4번</h3>
+            <div className="container">
             <form>
             <label>과일:</label>
-                <select id="fruit" onChange={handleChangeSelect} >
-                    <option value="사과">사과</option>
-                    <option value="바나나">바나나</option>
-                    <option value="복숭아">복숭아</option>
-                    <option value="딸기">딸기</option>
+                <select  onChange={handleChangeSelect} >
+                    <option value="./apple.png">사과</option>
+                    <option value="/banana.png">바나나</option>
+                    <option value="/peach.png">복숭아</option>
+                    <option value="/straw.png">딸기</option>
                 </select>
                 <label>배경색:</label>
-                <select id="color">
+                <select onChange={changeBack}>
                     <option value="black">검</option>
                     <option value="yellow">노</option>
                     <option value="red">빨</option>
                     <option value="blue">파</option>
                 </select>
                 <label>글자색:</label>
-                <select id="color">
+                <select id="color" onChange={changeColor}>
                     <option value="black">검</option>
                     <option value="yellow">노</option>
                     <option value="red">빨</option>
@@ -79,15 +96,18 @@ function HandlerFunc() {
                 <br />
                 <div> 내용:
                 <input type="text" 
-                        value={name}
                         onChange={(e) => {
                             console.log(e.target);
-                            setName(e.target.value);
+                            setText(e.target.value);
                         }}
                         onKeyDown={handleEnter}/>
                 </div>
 
             </form>
+            <img className="img" src={fruit} style={{width: '300px', height: '300px' }} ></img>
+            <div style={{backgroundColor: backColor, color: color}}>{text}</div>
+            </div>
+            
         </>
     )
 }

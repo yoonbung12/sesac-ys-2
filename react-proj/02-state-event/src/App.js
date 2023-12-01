@@ -15,7 +15,7 @@ function App() {
       <EventClass />
 
       <EventFunc /> */}
-      <HandlerEx />
+      {/* <HandlerEx /> */}
       <HandlerFunc />
 
     </div>
