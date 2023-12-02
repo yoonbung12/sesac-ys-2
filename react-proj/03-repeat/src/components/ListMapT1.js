@@ -18,6 +18,13 @@ function ListMapT1() {
         // setNewMail("");
     }
 
+    const deleteUser = (name) => {
+        const newList = list.filter((value) => {
+            return value.name != name;
+        });
+        setList(newList);
+    } 
+
     return (
         <>
 
@@ -36,7 +43,9 @@ function ListMapT1() {
                 {list.map((value) => {
                     return <li
                             key={value.name}
-                    
+                            onDoubleClick={() => 
+                                {deleteUser(value.name)
+                            }}
                     >{value.name}:{value.mail}</li>
                 })}
                 <li></li>
