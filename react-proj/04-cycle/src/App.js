@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import LifeCycleClass from './components/LifeCycleClass';
+import LifeCycle from './components/LifeCycleFunc';
+import PostList from './components/PostList';
 
 function App() {
+  const [number, setNumber] = useState(0);
+  const [isShow, setIsShow] = useState(true);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      
+      <button onClick={() => setNumber(number + 1)}>plus</button>
+      <button onClick={() => setIsShow(!isShow)}>
+        {isShow ? 'OFF' : 'ON'}
+      </button>
+      {/* {isShow && <LifeCycle number={number}/> } */}
+
+      {/* {isShow && <LifeCycleClass number={number} />} */}
+
+      {isShow && <PostList />}
     </div>
   );
 }
