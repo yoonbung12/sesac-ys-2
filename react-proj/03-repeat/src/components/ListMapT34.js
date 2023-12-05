@@ -5,6 +5,9 @@ function ListMapT34() {
     const data = [
         {id: 1, title: "제목이다.", writer: "누구?"},
     ]
+    const [list, setList] = useState(data);
+    const [title, setTitle] = useState("")
+    const [writer, setWriter] = useState("");
 
     // 데이터 추가
     const addData = (e) => {
@@ -12,12 +15,11 @@ function ListMapT34() {
         const newList = list.concat(newData);
 
         setList(newList);
+        setTitle("");
+        setWriter("");
     }
 
-    const [list, setList] = useState(data);
-    // const [id, setId] = useState("");
-    const [title, setTitle] = useState("")
-    const [writer, setWriter] = useState("");
+
     const[inputSearch, setInputSearch] = useState("");
     const[searchType, setSearchType] = useState("writer");
     const[result, setResult] = useState([]);
@@ -101,30 +103,34 @@ function ListMapT34() {
             </table>
 
             {/* 검색 결과를 따로 만들어야하노.. */}
-            <h3>검색 결과</h3>
+            <h3>댓글검색 결과</h3>
+            {result.length > 0 ? (
             <table>
-                <thead>
-                    <tr>
-                        <td>번호</td>
-                        <td>제목</td>
-                        <td>작성자</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {result.map((value, id) => {
-                        return (
-                            <tr key={value.id}>
-                                <td>{value.id}</td>
-                                <td>{value.title}</td>
-                                <td>{value.writer}</td>
+            <thead>
+                <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성자</td>
+                </tr>
+            </thead>
+            <tbody>
+                {result.map((value, id) => {
+                    return (
+                        <tr key={value.id}>
+                            <td>{value.id}</td>
+                            <td>{value.title}</td>
+                            <td>{value.writer}</td>
+                        </tr>
+                    )
+                
+                })}
 
-                            </tr>
-                        )
-                    
-                    })}
+            </tbody>
+        </table>
+            ): (
+                <h4>검색 결과가 없습니다.</h4>
+            )}
 
-                </tbody>
-            </table>
         </>
     )
 }
