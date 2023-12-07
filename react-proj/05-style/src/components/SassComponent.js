@@ -12,16 +12,16 @@ function SassComponent() {
                 <div className="box purple"></div>
             </div>
 
-            <div className="scss-parents">
+            {/* <div className="scss-parents">
                 안녕하세요???????
                 <ul>
                     <li>Hello</li>
                 </ul>
-            </div>
-            <div className="box1"></div>
+            </div> */}
+            {/* <div className="box1"></div>
             <div className="box2"></div>
             <button className="btn">일반 버튼</button>
-            <button className="btn-primary">강조 버튼</button>
+            <button className="btn-primary">강조 버튼</button> */}
         </>
      )
 
