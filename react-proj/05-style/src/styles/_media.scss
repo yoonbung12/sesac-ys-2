@@ -1,6 +1,27 @@
 // 테블릿일 때는 768px
+$break-md : 768px;
+
 @mixin tablet {
     @media screen and (max-width: 768px) {
         @content;       
     }
 }
+
+@keyframes ani1 {
+    
+    from {
+        top: 10px
+    }
+    to {
+        top : 50px
+    }
+}
+@keyframes ani2 {
+    from {
+        top: 10px
+    }
+    to {
+        top : 50px
+    }
+}
+
