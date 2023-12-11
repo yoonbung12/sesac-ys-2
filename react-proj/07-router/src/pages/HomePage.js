@@ -1,3 +1,4 @@
+import HookFormT from "../components/HookFormT";
 import SignUp from "../components/SignUp";
 
 export default function HomePage() {
@@ -5,6 +6,7 @@ export default function HomePage() {
     <>
         <div>여기는 메인 페이지</div>
         <SignUp />
+        <HookFormT />
     </>
     ) 
 }
