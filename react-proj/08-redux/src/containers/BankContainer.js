@@ -1,7 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BankInput } from "../components/Bank";
-
+import { addcount, minuscount } from "../store/bankReducer";
 export function BankContainer() {
-    // const number = useSelector((state) => state.number);
-    return <BankInput />
+    const money = useSelector((state) => state.money);
+    const dispatch = useDispatch();
+
+    return <BankInput money={money}
+            onAddcount = {(payload) => dispatch({...addcount(), payload: payload})}
+            onMinuscount = {(payload) => dispatch({...minuscount(), payload: payload})}
+    
+    
+    />
 }
