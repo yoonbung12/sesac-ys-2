@@ -18,6 +18,10 @@ const io = require("socket.io")(server, {
 const userIdArr = {};
 // { "socket.id": "userIda", "socket.id": "userIdb" ,"socket.id": "userIdc"  }
 
+const updateUserList = () => {
+  io.emit("userList", userIdArr )
+}
+
 io.on("connection", (socket) => {
   console.log("socket id", socket.id);
   // abcdjfkladjflaksjrlew
@@ -42,6 +46,7 @@ io.on("connection", (socket) => {
       io.emit("notice", { msg: `${res.userId}님이 입장하셨습니다.` });
       socket.emit("entrySuccess", { userId: res.userId });
       userIdArr[socket.id] = res.userId;
+      updateUserList();
     }
     console.log(userIdArr);
     // 중복된다는 오류 메세지를 보내주던지
@@ -56,7 +61,22 @@ io.on("connection", (socket) => {
     io.emit("notice", { msg: `${userIdArr[socket.id]}님이 퇴장하셨습니다.` });
     delete userIdArr[socket.id];
     console.log(userIdArr);
+    updateUserList();
+
   });
+
+  // 실습 4번
+  socket.on("sendMsg", (res) => {
+    if(res.dm === 'all') {
+      io.emit("chat", { userId: res.userId ,msg: res.msg});
+    }
+    else {
+      // io.to(소켓 아이디).emit()
+      io.to(res.dm).emit("chat", {userId: res.userId ,msg: res.msg, dm: true})
+    }
+  })
+
+
 });
 
 server.listen(PORT, function () {
