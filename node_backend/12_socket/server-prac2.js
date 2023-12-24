@@ -19,8 +19,8 @@ const userIdArr = {};
 // { "socket.id": "userIda", "socket.id": "userIdb" ,"socket.id": "userIdc"  }
 
 const updateUserList = () => {
-  io.emit("userList", userIdArr )
-}
+  io.emit("userList", userIdArr);
+};
 
 io.on("connection", (socket) => {
   console.log("socket id", socket.id);
@@ -62,21 +62,22 @@ io.on("connection", (socket) => {
     delete userIdArr[socket.id];
     console.log(userIdArr);
     updateUserList();
-
   });
 
   // 실습 4번
   socket.on("sendMsg", (res) => {
-    if(res.dm === 'all') {
-      io.emit("chat", { userId: res.userId ,msg: res.msg});
-    }
-    else {
+    if (res.dm === "all") {
+      io.emit("chat", { userId: res.userId, msg: res.msg });
+    } else {
       // io.to(소켓 아이디).emit()
-      io.to(res.dm).emit("chat", {userId: res.userId ,msg: res.msg, dm: true})
+      io.to(res.dm).emit("chat", {
+        userId: res.userId,
+        msg: res.msg,
+        dm: true,
+      });
+      socket.emit("chat", { userId: res.userId, msg: res.msg, dm: true });
     }
-  })
-
-
+  });
 });
 
 server.listen(PORT, function () {
